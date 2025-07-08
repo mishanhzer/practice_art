@@ -71,7 +71,7 @@ const ShopAnimals = () => {
           handleClickLike={handleClickLike}
           saveActive={saveActive} />
         <ButtonComponent
-          disabled={limit > commonData.length ? true : false}
+          disabled={limit >= commonData.length ? true : false}
           mt='mt-3'
           h='h-16'
           fz='text-[16px]'
