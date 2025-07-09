@@ -116,32 +116,29 @@ const BlockCart = ({ item }: { item: TypesCommonData }) => {
 
   const cart = useStore(state => state.cart)
   const testCart = useStore(state => state.testCart)
+  console.log(testCart)
 
   const obj = testCart.reduce((acc, value, index) => {
     acc[index] = value
     return acc
   }, {})
 
+  console.log(obj)
+
   const [activeCart, setActiveCart] = useState(false)
   const [btnId, setBtnId] = useState(0)
 
   const picturesCart = useStore(state => state.picturesCart)
+  console.log(picturesCart)
   const setCartTest = useStore(state => state.setCartTest)
   const setCartActiveItems = useStore(state => state.setCartActiveItems)
 
-  // const addActiveCarts = testData.map(item => {
-  //   const foundItem = cart.find((item2) => item2.name === item.name); // сначала ищем товар, который есть в корзине (если сразу искать товар внутри testData, то метод find не будет обновлять массив с новым обьектом, он вернет либо undefined, либо исходный обьект, а не новый)
-  //   return foundItem ? { ...foundItem, active: true } : { ...item, active: false }; // а затем уже от того, есть ли товар создаем нужные нам обьекты в массиве
-  // })
-
   useEffect(() => {
     setCartTest(picturesCart)
-    // setCartTest(cart)
   }, [picturesCart])
 
   useEffect(() => {
     setTestData(testCart)
-    // setCartActiveItems(addActiveCarts)
   }, [])
 
   const testClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -155,13 +152,6 @@ const BlockCart = ({ item }: { item: TypesCommonData }) => {
       getPicturesCart()
       deleteDuplicatePicture()
     }
-
-    const add = testData.map(item => {
-      const foundItem = cart.find((item2) => item2.name === item.name); // сначала ищем товар, который есть в корзине (если сразу искать товар внутри testData, то метод find не будет обновлять массив с новым обьектом, он вернет либо undefined, либо исходный обьект, а не новый)
-      return foundItem ? { ...foundItem, active: true } : { ...item, active: false }; // а затем уже от того, есть ли товар создаем нужные нам обьекты в массиве
-    })
-
-    setCartActiveItems(add)
 
     setTimeout(() => {
       setAddInCart(false)
@@ -184,16 +174,6 @@ const BlockCart = ({ item }: { item: TypesCommonData }) => {
         <ButtonCart item={item} testClick={testClick} btnText={'В корзину'} style={styles.cartBlock} img={() => cartInBtn()} />
       }
     </div>
-
-
-    // <div className={item.salary ? styles.cart : 'hidden'}>
-    //   {isAddedToCart[item.id] === true ?
-    //     <NavLink to='/cart' className={styles.cartBlockActive}>
-    //       <ButtonCart item={item} testClick={testClick} btnText={'В корзине'} img={() => null} />
-    //     </NavLink> :
-    //     <ButtonCart item={item} testClick={testClick} btnText={'В корзину'} style={styles.cartBlock} img={() => cartInBtn()} />
-    //   }
-    // </div>
   )
 }
 

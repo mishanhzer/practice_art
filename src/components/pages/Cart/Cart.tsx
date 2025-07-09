@@ -29,7 +29,7 @@ const Cart = () => {
   const [viewDeleteBtn, setViewDeleteBtn] = useState(false)
 
   useEffect(() => {
-    deleteDuplicatePicture()
+    // deleteDuplicatePicture()
   }, [])
 
   return (
@@ -126,7 +126,7 @@ const CartForm = ({ picturesCart, getDeleteTest, setViewDeleteBtn, discount }) =
           <div key={picture.id} className={styles.cartFormPictureContainer}>
             <div className={styles.cartFormPictureWrapperItems}>
               <div className={styles.cartFormWrapperPictureAndDescr}>
-                <img src={picture.id ? picture?.sizes?.[0].url : ''} className={styles.cartFormPictureImg} alt={picture.name} />
+                <img src={picture.id || !picture.id ? picture?.sizes?.[0].url : ''} className={styles.cartFormPictureImg} alt={picture.name} />
                 <div className={styles.cartFormPictureDescr}>
                   <h3 className={styles.cartFormPictureName}>{picture.name}</h3>
                   <div className={styles.cartFormPictureSizeAndMaterials}>Размер: {picture.size}</div>
