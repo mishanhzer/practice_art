@@ -29,7 +29,7 @@ const Cart = () => {
   const [viewDeleteBtn, setViewDeleteBtn] = useState(false)
 
   useEffect(() => {
-    // deleteDuplicatePicture()
+    deleteDuplicatePicture()
   }, [])
 
   return (

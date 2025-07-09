@@ -30,6 +30,7 @@ export const Category = ({
 
   const addActiveCarts = testData.map(item => {
     const foundItem = cart.find((item2) => item2.name === item.name)
+    const id = 'test' // создать айдишник, который будет добавляться от количества товаров категории (length)
     return foundItem ? { ...foundItem, active: true } : { ...item, active: false }
   })
 
