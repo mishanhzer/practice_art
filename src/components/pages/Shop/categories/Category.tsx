@@ -30,7 +30,7 @@ export const Category = ({
 
   const addActiveCarts = testData.map(item => {
     const foundItem = cart.find((item2) => item2.name === item.name)
-    const id = 'test' // создать айдишник, который будет добавляться от количества товаров категории (length)
+
     return foundItem ? { ...foundItem, active: true } : { ...item, active: false }
   })
 
@@ -117,7 +117,6 @@ const BlockCart = ({ item }: { item: TypesCommonData }) => {
 
   const cart = useStore(state => state.cart)
   const testCart = useStore(state => state.testCart)
-  console.log(testCart)
 
   const obj = testCart.reduce((acc, value, index) => {
     acc[index] = value
@@ -126,11 +125,15 @@ const BlockCart = ({ item }: { item: TypesCommonData }) => {
 
   console.log(obj)
 
+  for (let key in obj) {
+    obj[key] = obj[key].active
+  }
+
   const [activeCart, setActiveCart] = useState(false)
   const [btnId, setBtnId] = useState(0)
 
   const picturesCart = useStore(state => state.picturesCart)
-  console.log(picturesCart)
+
   const setCartTest = useStore(state => state.setCartTest)
   const setCartActiveItems = useStore(state => state.setCartActiveItems)
 
@@ -166,14 +169,61 @@ const BlockCart = ({ item }: { item: TypesCommonData }) => {
     changeActive(true)
   }
 
+  // console.log(item.id)
+
+
+  // const newKeys = keyObj.map((item: string) => 'key')
+  // console.log(newKeys)
+
+  // const newObj = newKeys.reduce((acc, key, index) => ({ ...acc, [key]: obj[index] }), {});
+  // console.log(newObj)
+
+
+  // const objKeys = keyObj.reduce((acc, value, index) => {
+  //   acc[index] = value
+  //   return acc
+  // }, {})
+
+  const keyObj = Object.keys(obj) // массив ключей [1, 2, 3, 4, 5]
+  const objKeys = keyObj.map((value, index) => ({ id: value }));
+  const objKeysTest = { ...objKeys } // обьект с ключами {0: {id: 1}, 1: {id: 2}
+
+  const getIndex = (id, obj) => {
+    const offset = obj[0].id
+    return id - offset
+  }
+
+  console.log(obj)
+  console.log(item.id)
+
+  console.log(getIndex(item.id, obj))
+
+
   return (
+
     <div className={item.salary ? styles.cart : 'hidden'}>
-      {obj[item.id]?.active ?
+      {obj[getIndex(item.id, obj)] ?
         <NavLink to='/cart' className={styles.cartBlockActive}>
           <ButtonCart item={item} testClick={testClick} btnText={'В корзине'} img={() => null} />
         </NavLink> :
         <ButtonCart item={item} testClick={testClick} btnText={'В корзину'} style={styles.cartBlock} img={() => cartInBtn()} />
       }
+
+
+      {/* {obj[item.id] ?
+        <NavLink to='/cart' className={styles.cartBlockActive}>
+          <ButtonCart item={item} testClick={testClick} btnText={'В корзине'} img={() => null} />
+        </NavLink> :
+        <ButtonCart item={item} testClick={testClick} btnText={'В корзину'} style={styles.cartBlock} img={() => cartInBtn()} />
+      } */}
+
+
+      {/* {obj[item.id]?.active ?
+        <NavLink to='/cart' className={styles.cartBlockActive}>
+          <ButtonCart item={item} testClick={testClick} btnText={'В корзине'} img={() => null} />
+        </NavLink> :
+        <ButtonCart item={item} testClick={testClick} btnText={'В корзину'} style={styles.cartBlock} img={() => cartInBtn()} />
+      } */}
     </div>
   )
 }
