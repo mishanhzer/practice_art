@@ -28,6 +28,8 @@ const ShopAnimals = () => {
 
   const addInCart = useStore(state => state.addInCart)
 
+  console.log(addInCart)
+
   const [saveActive, setSaveActive] = useState({})
   const [activeDiscount, setActiveDiscount] = useState(false)
 

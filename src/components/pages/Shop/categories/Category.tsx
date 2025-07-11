@@ -105,11 +105,8 @@ const BlockCart = ({ item, index }: { item: TypesCommonData, index: number }) =>
   const getPicturesCart = useStore(state => state.getPicturesCart)
   const deleteDuplicatePicture = useStore(state => state.deleteDuplicatePicture)
 
-  const setTestData = useStore(state => state.setTestData)
-
   const setAddInCart = useStore(state => state.setAddInCart)
 
-  const addProperty = useStore(state => state.addProperty)
   const addInCart = useStore(state => state.addInCart)
 
   const testCart = useStore(state => state.testCart)
