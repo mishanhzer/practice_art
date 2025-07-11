@@ -35,7 +35,7 @@ const ShopAnimals = () => {
     getData('animals', urlAnimalsShop, 'offsetAnimals', 0, 'pageAnimals')
     setTimeout(() => {
       setAddInCart(false)
-    }, 2700)
+    }, 3000)
   }, [])
 
   const commonData = dataShop.map((item2) => {
@@ -62,7 +62,7 @@ const ShopAnimals = () => {
 
   return (
     <div>
-      {addInCart ? <PopupCart text={'Товар добавлен в корзину'} /> : null}
+      {/* {addInCart ? <PopupCart text={'Товар добавлен в корзину'} /> : null} */}
       <SubscribePanel activeDiscount={activeDiscount} setActiveDiscount={setActiveDiscount} />
       <div className={styles.shopAnimalsContainer}>
         <Category

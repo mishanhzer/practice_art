@@ -18,13 +18,12 @@ const Cart = () => {
   const picturesCart = useStore(state => state.picturesCart)
   const cart = useStore(state => state.cart)
 
-  const testData = useStore(state => state.testData)
-  const testCart = useStore(state => state.testCart)
-
   const discount = useStore(state => state.discount)
 
   const getDeleteTest = useStore(state => state.getDeleteTest)
   const deleteDuplicatePicture = useStore(state => state.deleteDuplicatePicture)
+
+  const addInCart = useStore(state => state.addInCart)
 
   const [viewDeleteBtn, setViewDeleteBtn] = useState(false)
 
@@ -34,7 +33,7 @@ const Cart = () => {
 
   return (
     <>
-      {viewDeleteBtn ? <PopupCart text={'Товар удален из корзины'} /> : null}
+      {addInCart ? <PopupCart text={'Товар удален из корзины'} /> : null}
       <div className={styles.cartContainer}>
         {cart.length ?
           <>
@@ -53,6 +52,9 @@ const CartForm = ({ picturesCart, getDeleteTest, setViewDeleteBtn, discount }) =
   const [cart, setCart] = useState(picturesCart);
   const setCartTest = useStore(state => state.setCartTest)
 
+  const setAddInCart = useStore(state => state.setAddInCart)
+  const addInCart = useStore(state => state.addInCart)
+
   const getDeleteItemCart = useStore(state => state.getDeleteItemCart)
 
   const cartMain = useStore(state => state.cart)
@@ -63,6 +65,8 @@ const CartForm = ({ picturesCart, getDeleteTest, setViewDeleteBtn, discount }) =
 
   const [btnId, setBtnId] = useState(0)
   const [activeLike, setActiveLike] = useState(false)
+
+  console.log(addInCart)
 
   useEffect(() => { // отвечает за увеличение количества товара в корзине
     setCartTest(cart)
@@ -81,13 +85,19 @@ const CartForm = ({ picturesCart, getDeleteTest, setViewDeleteBtn, discount }) =
     getDeleteTest(elem)
     setViewDeleteBtn(elem)
 
+    setAddInCart(true)
+
     getDeleteItemCart(elem)
 
-    const changeActive = (boolean: boolean) => {
-      addProperty(elem, boolean);
-    };
+    setTimeout(() => {
+      setAddInCart(false)
+    }, 3000)
 
-    changeActive(false)
+    // const changeActive = (boolean: boolean) => {
+    //   addProperty(elem, boolean);
+    // };
+
+    // changeActive(false)
   }
 
   const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>) => {

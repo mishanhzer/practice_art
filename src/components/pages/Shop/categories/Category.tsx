@@ -2,6 +2,8 @@ import React, { act, useCallback, useEffect, useState, useMemo } from "react";
 import { NavLink } from "react-router";
 import { WhatsApp } from "../../../whatsapp/WhatsApp";
 
+import { PopupCart } from "../popupCart/PopupCart";
+
 import classNames from "classnames";
 
 import { useStore } from '../../../../store/store'
@@ -23,10 +25,10 @@ export const Category = ({
   const testData = useStore(state => state.testData)
   const discount = useStore(state => state.discount)
 
-  const testCart = useStore(state => state.testCart)
-  const picturesCart = useStore(state => state.picturesCart)
   const cart = useStore(state => state.cart)
   const setCartActiveItems = useStore(state => state.setCartActiveItems)
+
+  const addInCart = useStore(state => state.addInCart)
 
   const addActiveCarts = testData.map(item => {
     const foundItem = cart.find((item2) => item2.name === item.name)
@@ -40,7 +42,8 @@ export const Category = ({
 
   return (
     <div className={styles.shopAnimals}>
-      {testData.slice(0, limit).map(item => {
+      {addInCart ? <PopupCart text={'Товар добавлен в корзину'} /> : null}
+      {testData.slice(0, limit).map((item, i) => {
         return (
           <div
             className={classNames(styles.shopBlock, item.salary ? styles.pictureStockOpacity : styles.pictureSoldOutOpacity)}
@@ -56,10 +59,9 @@ export const Category = ({
               item={item}
               discount={discount} />
             <div className={styles.name}>{item.name}</div>
-
             <BlockCart
-              item={item} />
-
+              item={item}
+              index={i} />
             <WhatsApp />
           </div>
         )
@@ -98,24 +100,18 @@ const Salary = ({ item, discount }: TypesSalary) => {
   )
 }
 
-const BlockCart = ({ item }: { item: TypesCommonData }) => {
+const BlockCart = ({ item, index }: { item: TypesCommonData, index: number }) => {
   const getPictureCart = useStore(state => state.getPictureCart)
   const getPicturesCart = useStore(state => state.getPicturesCart)
   const deleteDuplicatePicture = useStore(state => state.deleteDuplicatePicture)
 
-  const testData = useStore(state => state.testData)
   const setTestData = useStore(state => state.setTestData)
 
-  const addInCart = useStore(state => state.addInCart)
   const setAddInCart = useStore(state => state.setAddInCart)
 
-  const isAddedToCart = useStore(state => state.isAddedToCart)
-
   const addProperty = useStore(state => state.addProperty)
+  const addInCart = useStore(state => state.addInCart)
 
-  const [saveActive, setSaveActive] = useState(false)
-
-  const cart = useStore(state => state.cart)
   const testCart = useStore(state => state.testCart)
 
   const obj = testCart.reduce((acc, value, index) => {
@@ -123,11 +119,9 @@ const BlockCart = ({ item }: { item: TypesCommonData }) => {
     return acc
   }, {})
 
-  console.log(obj)
-
-  for (let key in obj) {
+  Object.keys(obj).forEach(key => {
     obj[key] = obj[key].active
-  }
+  })
 
   const [activeCart, setActiveCart] = useState(false)
   const [btnId, setBtnId] = useState(0)
@@ -135,15 +129,14 @@ const BlockCart = ({ item }: { item: TypesCommonData }) => {
   const picturesCart = useStore(state => state.picturesCart)
 
   const setCartTest = useStore(state => state.setCartTest)
-  const setCartActiveItems = useStore(state => state.setCartActiveItems)
 
   useEffect(() => {
     setCartTest(picturesCart)
   }, [picturesCart])
 
-  useEffect(() => {
-    setTestData(testCart)
-  }, [])
+  // useEffect(() => {
+  //   setTestData(testCart)
+  // }, [])
 
   const testClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     const activeBtn = +e.currentTarget.getAttribute('data-id')!
@@ -161,69 +154,21 @@ const BlockCart = ({ item }: { item: TypesCommonData }) => {
       setAddInCart(false)
     }, 2700)
 
+    // const changeActive = (boolean: boolean) => {
+    //   addProperty(activeBtn, boolean);
+    // };
 
-    const changeActive = (boolean: boolean) => {
-      addProperty(activeBtn, boolean);
-    };
-
-    changeActive(true)
+    // changeActive(true)
   }
-
-  // console.log(item.id)
-
-
-  // const newKeys = keyObj.map((item: string) => 'key')
-  // console.log(newKeys)
-
-  // const newObj = newKeys.reduce((acc, key, index) => ({ ...acc, [key]: obj[index] }), {});
-  // console.log(newObj)
-
-
-  // const objKeys = keyObj.reduce((acc, value, index) => {
-  //   acc[index] = value
-  //   return acc
-  // }, {})
-
-  const keyObj = Object.keys(obj) // массив ключей [1, 2, 3, 4, 5]
-  const objKeys = keyObj.map((value, index) => ({ id: value }));
-  const objKeysTest = { ...objKeys } // обьект с ключами {0: {id: 1}, 1: {id: 2}
-
-  const getIndex = (id, obj) => {
-    const offset = obj[0].id
-    return id - offset
-  }
-
-  console.log(obj)
-  console.log(item.id)
-
-  console.log(getIndex(item.id, obj))
-
 
   return (
-
     <div className={item.salary ? styles.cart : 'hidden'}>
-      {obj[getIndex(item.id, obj)] ?
+      {obj[index] ?
         <NavLink to='/cart' className={styles.cartBlockActive}>
           <ButtonCart item={item} testClick={testClick} btnText={'В корзине'} img={() => null} />
         </NavLink> :
         <ButtonCart item={item} testClick={testClick} btnText={'В корзину'} style={styles.cartBlock} img={() => cartInBtn()} />
       }
-
-
-      {/* {obj[item.id] ?
-        <NavLink to='/cart' className={styles.cartBlockActive}>
-          <ButtonCart item={item} testClick={testClick} btnText={'В корзине'} img={() => null} />
-        </NavLink> :
-        <ButtonCart item={item} testClick={testClick} btnText={'В корзину'} style={styles.cartBlock} img={() => cartInBtn()} />
-      } */}
-
-
-      {/* {obj[item.id]?.active ?
-        <NavLink to='/cart' className={styles.cartBlockActive}>
-          <ButtonCart item={item} testClick={testClick} btnText={'В корзине'} img={() => null} />
-        </NavLink> :
-        <ButtonCart item={item} testClick={testClick} btnText={'В корзину'} style={styles.cartBlock} img={() => cartInBtn()} />
-      } */}
     </div>
   )
 }
