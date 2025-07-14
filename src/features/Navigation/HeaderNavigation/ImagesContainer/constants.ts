@@ -1,6 +1,6 @@
-import vkImg from '../logo/logoHeader/linkSocialMedia/vk.svg'
-import instImg from '../logo/logoHeader/linkSocialMedia/inst.png'
-import liveImg from '../logo/logoHeader/linkSocialMedia/live.png'
+import vkImg from '../../../../assets/logo/logoHeader/linkSocialMedia/vk.svg'
+import instImg from '../../../../assets/logo/logoHeader/linkSocialMedia/inst.png'
+import liveImg from '../../../../assets/logo/logoHeader/linkSocialMedia/live.png'
 
 import { TypesLogo } from './types'
 

@@ -12,7 +12,7 @@ import {
   TypesDataWorks, TypesSizes
 } from "../assets/images/Images"
 
-interface TypesPictureCart {
+export interface TypesPictureCart {
   active?: boolean
   description?: string
   file?: string

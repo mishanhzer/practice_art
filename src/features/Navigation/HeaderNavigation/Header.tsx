@@ -5,7 +5,7 @@ import { ImagesContainer } from "./ImagesContainer/ImagesContainer";
 import { BasketContainer } from "./BasketContainer/BasketContainer";
 import { LogoContainer } from './LogoContainer/LogoContainer';
 
-export const Header = () => {
+const Header = () => {
   return (
     <HeaderContainer>
       <LogoContainer />
@@ -14,3 +14,5 @@ export const Header = () => {
     </HeaderContainer>
   );
 };
+
+export default Header;

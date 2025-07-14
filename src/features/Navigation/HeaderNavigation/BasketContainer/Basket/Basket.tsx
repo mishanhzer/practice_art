@@ -4,9 +4,10 @@ import { twMerge } from "tailwind-merge";
 
 import { BasketProps } from "./types"
 
-import { picturesCart } from '../../selectors/basketSelector'
+import { useBasketSelector } from '../../selectors/basketSelector'
 
 export const Basket = ({ className }: BasketProps) => {
+  const picturesCart = useBasketSelector()
   return (
     <NavLink to="/cart" className="relative">
       <svg

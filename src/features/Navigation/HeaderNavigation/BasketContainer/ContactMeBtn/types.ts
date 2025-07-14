@@ -1,4 +1,4 @@
-export interface ImageTypes {
+export interface ArrowIconTypes {
   w: string
   h: string
   turn: string
