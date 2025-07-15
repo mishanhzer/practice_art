@@ -25,6 +25,7 @@ const ShopPeopleAndAnimals = lazy(() => import('../pages/shop/categories/ShopPeo
 const Cart = lazy(() => import('../pages/Cart/Cart.tsx'))
 
 const Header = lazy(() => import('../../features/Navigation/HeaderNavigation/Header.tsx'));
+const NavigationMenu = lazy(() => import('../../features/Navigation/NavigationMenu/NavigationMenu.tsx'));
 
 import "./app.css";
 
@@ -33,8 +34,9 @@ const App = () => {
     <Router>
       <div className={`w-full`}>
         {/* <AppHeader /> */}
+        {/* <NavigateMenu /> */}
         <Header />
-        <NavigateMenu />
+        <NavigationMenu />
         <Suspense fallback={<Spinner />}>
           <Routes>
             <Route path="/" element={<Home />} />
