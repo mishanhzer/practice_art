@@ -27,7 +27,7 @@ const Cart = lazy(() => import('../pages/Cart/Cart.tsx'))
 const Header = lazy(() => import('../../features/Navigation/HeaderNavigation/Header.tsx'));
 const NavigationMenu = lazy(() => import('../../features/Navigation/NavigationMenu/NavigationMenu.tsx'));
 
-const Home = lazy(() => import('../../features/Layout/PageHome/PageHome.tsx'));
+const Home = lazy(() => import('../../pages/Home/Home.tsx'));
 
 import "./app.css";
 
