@@ -3,7 +3,7 @@ import React from "react";
 import { Basket } from "./Basket/Basket";
 import { ContactMeBtn } from "./ContactMeBtn/ContactMeBtn";
 
-import styles from '../appHeader.module.scss'
+import styles from '../header.module.scss'
 
 export const BasketContainer = () => {
   return (

@@ -1,18 +1,19 @@
 import React from "react";
 
-import { HeaderContainer } from "./HeaderContainer/HeaderContainer";
 import { ImagesContainer } from "./ImagesContainer/ImagesContainer";
 import { BasketContainer } from "./BasketContainer/BasketContainer";
 import { LogoContainer } from './LogoContainer/LogoContainer';
 
+import styles from './header.module.scss'
+
 const Header = () => {
   return (
-    <HeaderContainer>
-      <LogoContainer />
+    <header className={styles.header}>
       <ImagesContainer />
+      <LogoContainer />
       <BasketContainer />
-    </HeaderContainer>
+    </header>
   );
 };
 
-export default Header;
+export default Header

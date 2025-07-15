@@ -4,20 +4,18 @@
   @apply w-24 rounded-full border-2 border-black border-solid
 }
 
-
 // Стили Header
 .header {
-  @apply flex justify-between pt-8 items-center h-28 px-10
+  @apply flex flex-row justify-between pt-8 items-center h-28 px-10 
 }
-
-.container {
-  @apply flex flex-row w-1/4 justify-between
-}
-
 
 // стили Images
+.container {
+  @apply flex w-1/4 justify-between
+}
+
 .containerImages {
-  @apply flex w-28 justify-between
+  @apply flex w-28 justify-between items-center
 }
 
 // стили Basket
@@ -33,6 +31,5 @@
 }
 
 .contactMeBtn {
-  // @apply flex py-6 px-10 bg-[rgba(0,91,255,1)] text-white items-center font-sans hover:transition hover:opacity-80 rounded-lg group
   @apply flex py-6 px-10 bg-[rgba(0,91,255,1)] text-white items-center font-sans hover:transition hover:opacity-80 rounded-lg
 }

@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { ArrowIcon } from "./ArrowIcon";
 import { LinkTypes } from "./types"
 
-import styles from '../../appHeader.module.scss'
+import styles from '../../header.module.scss'
 
 export const ContactMeBtn = ({ ml, fz }: LinkTypes) => {
   return (
