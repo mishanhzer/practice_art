@@ -6,10 +6,10 @@ import {
 } from "react-router-dom";
 
 import { Spinner } from "../spinner/Spinner";
-import { AppHeader } from "../appHeader/AppHeader";
-import { NavigateMenu } from "../navigateMenu/NavigateMenu";
+// import { AppHeader } from "../appHeader/AppHeader";
+// import { NavigateMenu } from "../navigateMenu/NavigateMenu";
 
-const Home = lazy(() => import('../pages/Home/Home.tsx'));
+// const Home = lazy(() => import('../pages/Home/Home.tsx'));
 const Portfolio = lazy(() => import('../pages/Portfolio/Portfolio.tsx'));
 const Animals = lazy(() => import('../pages/Portfolio/Animals/Animals.tsx'));
 const Flowers = lazy(() => import('../pages/Portfolio/Flowers/Flowers.tsx'));
@@ -26,6 +26,8 @@ const Cart = lazy(() => import('../pages/Cart/Cart.tsx'))
 
 const Header = lazy(() => import('../../features/Navigation/HeaderNavigation/Header.tsx'));
 const NavigationMenu = lazy(() => import('../../features/Navigation/NavigationMenu/NavigationMenu.tsx'));
+
+const Home = lazy(() => import('../../features/Layout/PageHome/PageHome.tsx'));
 
 import "./app.css";
 
