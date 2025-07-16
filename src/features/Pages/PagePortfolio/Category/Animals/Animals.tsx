@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import { WidgetPages } from "../additionalUI/unorderedListPages/WidgetPages.tsx";
-import { PicturesContent } from "../additionalUI/picturesContent/PicturesContent.tsx"
+import { WidgetPages } from "../../ui/WidgetPages/WidgetPages.tsx";
+import { PicturesContent } from "../../ui/PicturesContent/PicturesContent.tsx";
 
-import { Spinner } from "../../../../UI/spinner/Spinner.tsx";
+import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
 import { WhatsApp } from "../../../Communication/WhatsApp/WhatsApp.tsx";
-import { animalsDataPages } from "../../constants.ts"
+import { animalsDataPages } from "./constants.ts"
 
 import styles from '../mainStylesPictures.module.scss'
 
-import { urlAnimals, pathAnimals } from "../../constants.ts";
+import { urlAnimals, pathAnimals } from "./constants.ts";
 
 import { useAnimalsSelector, useOffsetAnimalsSelector } from "../../selectors/animalsSelectors.tsx";
 import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelector.tsx";
