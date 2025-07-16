@@ -40,11 +40,25 @@ export const MainPicture = () => {
   )
 }
 
-const ImagePortfolio = ({ source, alt }: TypesImagePortfolio) => {
+export const ImagePortfolio = ({ source, alt }: TypesImagePortfolio) => {
   return (
     <img
       className={`min-w-min w-350 h-350`}
       src={source}
+      alt={alt} />
+  )
+}
+
+interface TypeImagePortfolio {
+  src: string
+  alt: string
+}
+
+export const PortfolioImage = ({ src, alt }: TypeImagePortfolio) => {
+  return (
+    <img
+      className={`min-w-min w-350 h-350`}
+      src={src}
       alt={alt} />
   )
 }
