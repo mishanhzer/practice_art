@@ -10,9 +10,12 @@ import { Spinner } from "../spinner/Spinner";
 // import { NavigateMenu } from "../navigateMenu/NavigateMenu";
 
 // const Home = lazy(() => import('../pages/Home/Home.tsx'));
-const Portfolio = lazy(() => import('../pages/Portfolio/Portfolio.tsx'));
-const Animals = lazy(() => import('../pages/Portfolio/Animals/Animals.tsx'));
-const Flowers = lazy(() => import('../pages/Portfolio/Flowers/Flowers.tsx'));
+// const Portfolio = lazy(() => import('../pages/Portfolio/Portfolio.tsx'));
+const Portfolio = lazy(() => import('../../pages/Portfolio/Portfolio.tsx'));
+const Animals = lazy(() => import('../../pages/Animals/Animals.tsx'));
+// const Animals = lazy(() => import('../pages/Portfolio/Animals/Animals.tsx'));
+// const Flowers = lazy(() => import('../pages/Portfolio/Flowers/Flowers.tsx'));
+const Flowers = lazy(() => import('../../pages/Flowers/Flowers.tsx'));
 const StillLife = lazy(() => import('../pages/Portfolio/StillLife/StillLife.tsx'));
 const PeopleAndAnimals = lazy(() => import('../pages/Portfolio/PeopleAndAnimals/PeopleAndAnimals.tsx'));
 const ContactMeAnt = lazy(() => import('../pages/ContactMe/ContactMeAnt.tsx'));

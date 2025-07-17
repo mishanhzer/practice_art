@@ -1,5 +1,5 @@
 import React from "react";
-import { useStore } from "../../../store/store.ts";
+import { useStore } from "../../../../store/store";
 
 import { PortfolioImage } from "../PortfolioImage/PortfolioImage.js";
 

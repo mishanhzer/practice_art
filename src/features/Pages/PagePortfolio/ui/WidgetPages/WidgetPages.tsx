@@ -1,10 +1,10 @@
 import React from 'react'
 import { ButtonNavigate } from '../ButtonNavigate/ButtonNavigate';
-import { ListItemsPage } from '../ListItemsPage/ListItemsPages';
+import { ListItemsPage } from '../ListItemPage/ListItemsPages';
 
 import { arrowPages, doubleArrowPages } from "../../../../../assets/logo/logo";
 
-import styles from '../../mainStylesPictures.module.scss'
+import styles from '../../portfolio.module.scss'
 
 import { TypesWidgetPages } from "./types"
 

@@ -5,16 +5,16 @@ import { WidgetPages } from "../../ui/WidgetPages/WidgetPages.tsx";
 import { PicturesContent } from "../../ui/PicturesContent/PicturesContent.tsx";
 
 import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
-import { WhatsApp } from "../../../Communication/WhatsApp/WhatsApp.tsx";
+import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
 
-import styles from '../mainStylesPictures.module.scss'
+import styles from '../../portfolio.module.scss'
 
 import { urlAnimals, pathAnimals, animalsDataPages } from "./constants.ts";
 
 import { useAnimalsSelector, useOffsetAnimalsSelector } from "./selectors/animalsSelectors.tsx";
-import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelector.tsx";
+import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelectors.tsx";
 
-const Animals = () => {
+const PageAnimals = () => {
   const animals = useAnimalsSelector()
   const offsetAnimals = useOffsetAnimalsSelector()
 
@@ -82,4 +82,4 @@ const Animals = () => {
   )
 }
 
-export default Animals
+export default PageAnimals

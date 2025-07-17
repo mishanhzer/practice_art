@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import { WidgetPages } from "../additionalUI/unorderedListPages/WidgetPages.tsx";
+import { WidgetPages } from "../../ui/WidgetPages/WidgetPages.tsx";
 
-import { Spinner } from "../../../spinner/Spinner.tsx";
-import { PicturesContent } from "../additionalUI/picturesContent/PicturesContent.tsx";
-import { WhatsApp } from "../../../whatsapp/WhatsApp.tsx";
+import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
+import { PicturesContent } from "../../ui/PicturesContent/PicturesContent.tsx";
+import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
 
 import styles from '../mainStylesPictures.module.scss'
 
@@ -14,7 +14,7 @@ import { pathStillLife, stillLifeDataPages, urlStillLife } from './constants.ts'
 import { useStillLifeSelector, useOffsetStillLifeSelector } from "./selectors/stillLifeSelectors.tsx";
 import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelector.tsx";
 
-const StillLife = () => {
+const PageStillLife = () => {
   const stillLife = useStillLifeSelector()
   const offsetStillLife = useOffsetStillLifeSelector()
 
@@ -78,4 +78,4 @@ const StillLife = () => {
   )
 }
 
-export default StillLife
+export default PageStillLife

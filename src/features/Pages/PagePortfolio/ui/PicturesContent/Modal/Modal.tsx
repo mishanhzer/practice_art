@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from 'react';
 import { AnimationSinglePicture } from '../constants'
 import { positionModal } from './constants';
 
-import styles from '../../mainStylesPictures.module.scss'
+import styles from '../../../portfolio.module.scss'
 
 import { TypesModalPortal } from "./types"
 import { portalBlock } from "./constants"

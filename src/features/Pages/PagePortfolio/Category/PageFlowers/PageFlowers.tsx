@@ -9,12 +9,12 @@ import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
 
 import { pathFlowers, flowersDataPages, urlFlowers } from "./constants.ts";
 
-import styles from '../mainStylesPictures.module.scss'
+import styles from '../../portfolio.module.scss'
 
 import { useFlowersSelector, useOffsetFlowersSelector } from "./selectors/flowersSelectors.tsx";
-import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelector.tsx";
+import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelectors.tsx";
 
-const Flowers = () => {
+const PageFlowers = () => {
   const flowers = useFlowersSelector()
   const offsetFlowers = useOffsetFlowersSelector()
 
@@ -79,5 +79,5 @@ const Flowers = () => {
   )
 }
 
-export default Flowers
+export default PageFlowers
 
