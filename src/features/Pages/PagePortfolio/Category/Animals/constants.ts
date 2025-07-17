@@ -1,4 +1,4 @@
-import {_apiUrl} from "../../constants.js"
+import {_apiUrl} from "../../constants"
 
 export const pathAnimals: string = '/portfolio/animals/'
 export const linkAnimals: string = 'https://disk.yandex.ru/d/K4E-ldU2sp1VbQ'
