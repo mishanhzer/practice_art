@@ -2,17 +2,16 @@ import React, { useEffect } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { WidgetPages } from "../../ui/WidgetPages/WidgetPages.tsx";
-
 import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
 import { PicturesContent } from "../../ui/PicturesContent/PicturesContent.tsx";
 import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
 
+import styles from '../../portfolio.module.scss'
+
 import { pathPeopleAndAnimals, urlPeopleAndAnimals, peopleAndAnimalsDataPages } from "./constants.ts"
 
-import styles from '../mainStylesPictures.module.scss'
-
 import { usePeopleAndAnimalsSelector, useOffsetPeopleAndAnimalsSelector } from "./selectors/peopleAndAnimalsSelectors.tsx";
-import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelector.tsx";
+import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelectors.tsx";
 
 const PagePeopleAndAnimals = () => {
   const peopleAndAnimals = usePeopleAndAnimalsSelector()

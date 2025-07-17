@@ -5,19 +5,22 @@ import {
   Routes,
 } from "react-router-dom";
 
-import { Spinner } from "../spinner/Spinner";
+import { Spinner } from "../../features/UI/Spinner/Spinner.tsx";
 // import { AppHeader } from "../appHeader/AppHeader";
 // import { NavigateMenu } from "../navigateMenu/NavigateMenu";
 
 // const Home = lazy(() => import('../pages/Home/Home.tsx'));
 // const Portfolio = lazy(() => import('../pages/Portfolio/Portfolio.tsx'));
-const Portfolio = lazy(() => import('../../pages/Portfolio/Portfolio.tsx'));
-const Animals = lazy(() => import('../../pages/Animals/Animals.tsx'));
 // const Animals = lazy(() => import('../pages/Portfolio/Animals/Animals.tsx'));
 // const Flowers = lazy(() => import('../pages/Portfolio/Flowers/Flowers.tsx'));
+// const StillLife = lazy(() => import('../pages/Portfolio/StillLife/StillLife.tsx'));
+// const PeopleAndAnimals = lazy(() => import('../pages/Portfolio/PeopleAndAnimals/PeopleAndAnimals.tsx'));
+const Portfolio = lazy(() => import('../../pages/Portfolio/Portfolio.tsx'));
+const Animals = lazy(() => import('../../pages/Animals/Animals.tsx'));
 const Flowers = lazy(() => import('../../pages/Flowers/Flowers.tsx'));
-const StillLife = lazy(() => import('../pages/Portfolio/StillLife/StillLife.tsx'));
-const PeopleAndAnimals = lazy(() => import('../pages/Portfolio/PeopleAndAnimals/PeopleAndAnimals.tsx'));
+const StillLife = lazy(() => import('../../pages/StillLife/StillLife.tsx'));
+const PeopleAndAnimals = lazy(() => import('../../pages/PeopleAndAnimals/PeopleAndAnimals.tsx'));
+
 const ContactMeAnt = lazy(() => import('../pages/ContactMe/ContactMeAnt.tsx'));
 const About = lazy(() => import('../pages/About/About.tsx'))
 const Shop = lazy(() => import('../pages/shop/Shop.tsx'))

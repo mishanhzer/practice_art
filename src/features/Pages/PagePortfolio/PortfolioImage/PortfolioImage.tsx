@@ -1,6 +1,6 @@
-import React from "react"
-
+import image from '../../../../assets/images/portfolioImages/portfolioAnimals.jpg'
 import { TypeImagePortfolio } from "../types"
+import React from "react"
 
 export const PortfolioImage = ({ src, alt }: TypeImagePortfolio) => {
   return (

@@ -1,6 +1,9 @@
 import React from "react"
+
 import styles from '../home.module.scss'
+
 import { name, subheader, description, subDescription } from '../constants.ts'
+
 import homePicture from '../../../../assets/images/homeImages/homePicture.jpg'
 
 export const Info = () => {

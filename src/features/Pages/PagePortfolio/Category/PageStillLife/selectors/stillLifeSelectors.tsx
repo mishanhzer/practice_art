@@ -1,4 +1,4 @@
-import { useStore } from "../../../store/store.ts";
+import { useStore } from "../../../../../../store/store.ts";
 
 export const useStillLifeSelector = () => {
   const stillLife = useStore(state => state.stillLife)

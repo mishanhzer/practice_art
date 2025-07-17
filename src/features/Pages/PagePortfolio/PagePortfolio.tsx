@@ -3,8 +3,8 @@ import React, { Fragment } from "react";
 import { TitlePage } from "../TitlePage/TitlePage.tsx";
 import { PortfolioItem } from "./PortfolioItem/PortfolioItem.tsx";
 import { WhatsApp } from "../../Communication/WhatsApp/WhatsApp.tsx";
-
 import { PortfolioImage } from './PortfolioImage/PortfolioImage.tsx'
+
 import { descriptionAnimals, descriptionFlowers, descriptionStillLife, descriptionPeopleAndAnimals } from './constants.ts'
 
 import { usePortfolioAnimalsSelector, usePortfolioFlowersSelector, usePortfolioStillLifeSelector, usePortfolioPeopleAndAnimalsSelector } from "./selectors/portfolioSelectors.tsx";

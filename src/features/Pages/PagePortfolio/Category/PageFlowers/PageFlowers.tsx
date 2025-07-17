@@ -2,14 +2,13 @@ import React, { useEffect } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { WidgetPages } from "../../ui/WidgetPages/WidgetPages.tsx";
-
 import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
 import { PicturesContent } from "../../ui/PicturesContent/PicturesContent.tsx";
 import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
 
-import { pathFlowers, flowersDataPages, urlFlowers } from "./constants.ts";
-
 import styles from '../../portfolio.module.scss'
+
+import { pathFlowers, flowersDataPages, urlFlowers } from "./constants.ts";
 
 import { useFlowersSelector, useOffsetFlowersSelector } from "./selectors/flowersSelectors.tsx";
 import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelectors.tsx";

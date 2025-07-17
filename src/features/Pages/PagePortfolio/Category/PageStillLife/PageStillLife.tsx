@@ -2,17 +2,16 @@ import React, { useEffect } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { WidgetPages } from "../../ui/WidgetPages/WidgetPages.tsx";
-
 import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
 import { PicturesContent } from "../../ui/PicturesContent/PicturesContent.tsx";
 import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
 
-import styles from '../mainStylesPictures.module.scss'
+import styles from '../../portfolio.module.scss'
 
 import { pathStillLife, stillLifeDataPages, urlStillLife } from './constants.ts'
 
 import { useStillLifeSelector, useOffsetStillLifeSelector } from "./selectors/stillLifeSelectors.tsx";
-import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelector.tsx";
+import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelectors.tsx";
 
 const PageStillLife = () => {
   const stillLife = useStillLifeSelector()

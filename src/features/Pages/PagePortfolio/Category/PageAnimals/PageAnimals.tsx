@@ -3,7 +3,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 import { WidgetPages } from "../../ui/WidgetPages/WidgetPages.tsx";
 import { PicturesContent } from "../../ui/PicturesContent/PicturesContent.tsx";
-
 import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
 import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
 
