@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 
-import 'reactjs-popup/dist/index.css';
-
 import { TypesMenuItem } from '../types'
+
+import 'reactjs-popup/dist/index.css';
 import styles from '../navigationMenu.module.scss'
 
 export const MenuItem = ({ name, path }: TypesMenuItem) => {

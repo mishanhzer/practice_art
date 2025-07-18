@@ -6,12 +6,12 @@ import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
 import { PicturesContent } from "../../ui/PicturesContent/PicturesContent.tsx";
 import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
 
-import styles from '../../portfolio.module.scss'
+import { useStillLifeSelector, useOffsetStillLifeSelector } from "./selectors/stillLifeSelectors.tsx";
+import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelectors.tsx";
 
 import { pathStillLife, stillLifeDataPages, urlStillLife } from './constants.ts'
 
-import { useStillLifeSelector, useOffsetStillLifeSelector } from "./selectors/stillLifeSelectors.tsx";
-import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelectors.tsx";
+import styles from '../../portfolio.module.scss'
 
 const PageStillLife = () => {
   const stillLife = useStillLifeSelector()

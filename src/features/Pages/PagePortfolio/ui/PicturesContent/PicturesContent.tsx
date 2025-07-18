@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import { AnimationContainer } from "./constants.ts";
 
 import { ModalPortal } from "./Modal/Modal.tsx";
+import { AnimationContainer } from "./AnimationContainer/AnimationContainer.tsx";
 
 import { TypesPicturesContent } from "./types"
 

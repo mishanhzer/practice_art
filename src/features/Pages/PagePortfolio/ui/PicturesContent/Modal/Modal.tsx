@@ -1,13 +1,13 @@
 import ReactDOM from 'react-dom';
 import React, { useRef, useEffect } from 'react';
 
-import { AnimationSinglePicture } from '../constants'
-import { positionModal } from './constants';
+import { AnimationSinglePicture } from '../AnimationContainer/AnimationContainer';
 
-import styles from '../../../portfolio.module.scss'
+import { positionModal, portalBlock } from './constants';
 
 import { TypesModalPortal } from "./types"
-import { portalBlock } from "./constants"
+
+import styles from '../../../portfolio.module.scss'
 
 export const ModalPortal = ({ position, handleClose, source, alt }: TypesModalPortal) => {
   const ref = useRef(null)

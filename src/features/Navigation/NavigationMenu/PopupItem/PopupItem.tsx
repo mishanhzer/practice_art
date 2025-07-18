@@ -4,15 +4,17 @@ import classNames from 'classnames';
 
 import Popup from 'reactjs-popup';
 import { PopupActions } from 'reactjs-popup/dist/types';
-import 'reactjs-popup/dist/index.css';
 
 import { PortoflioLinks } from './PortfolioLinks/PortfilioLinks';
 
-import { TypesMenuItem } from '../types';
 import { initialValueRef } from './constants'
 
-import { arrowPages } from '../../../../assets/logo/logo'
+import { TypesMenuItem } from '../types';
+
+import 'reactjs-popup/dist/index.css';
 import styles from '../navigationMenu.module.scss'
+
+import { arrowPages } from '../../../../assets/logo/logo'
 
 export const PopupItem = ({ name, path }: TypesMenuItem) => {
   const ref = useRef<PopupActions>(initialValueRef);

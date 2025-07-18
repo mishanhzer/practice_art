@@ -1,6 +1,7 @@
 import React from "react";
 
 import { ExternalLinks } from "./ExternalLinks/ExternalLinks";
+
 import { externalImages } from './constants'
 
 import styles from '../header.module.scss'

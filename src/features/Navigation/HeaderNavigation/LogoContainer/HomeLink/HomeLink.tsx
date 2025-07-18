@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "react-router"
 
-import { mainLogo } from "../../../../../assets/logo/logo"
 import styles from '../../header.module.scss'
+
+import { mainLogo } from "../../../../../assets/logo/logo"
 
 export const HomeLink = () => {
   return (

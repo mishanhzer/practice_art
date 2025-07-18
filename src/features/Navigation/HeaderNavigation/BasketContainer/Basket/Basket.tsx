@@ -2,9 +2,9 @@ import React from "react";
 import { NavLink } from "react-router";
 import { twMerge } from "tailwind-merge";
 
-import { BasketProps } from "./types"
-
 import { useBasketSelector } from '../../selectors/basketSelector'
+
+import { BasketProps } from "./types"
 
 export const Basket = ({ className }: BasketProps) => {
   const picturesCart = useBasketSelector()

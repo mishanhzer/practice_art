@@ -5,9 +5,10 @@ import { PortfolioItem } from "./PortfolioItem/PortfolioItem.tsx";
 import { WhatsApp } from "../../Communication/WhatsApp/WhatsApp.tsx";
 import { PortfolioImage } from './PortfolioImage/PortfolioImage.tsx'
 
-import { descriptionAnimals, descriptionFlowers, descriptionStillLife, descriptionPeopleAndAnimals } from './constants.ts'
-
 import { usePortfolioAnimalsSelector, usePortfolioFlowersSelector, usePortfolioStillLifeSelector, usePortfolioPeopleAndAnimalsSelector } from "./selectors/portfolioSelectors.tsx";
+
+
+import { descriptionAnimals, descriptionFlowers, descriptionStillLife, descriptionPeopleAndAnimals } from './constants.ts'
 
 import portfolioAnimals from '../../../assets/images/portfolioImages/portfolioAnimals.jpg'
 import portfolioFlowers from '../../../assets/images/portfolioImages/portfolioFlowers.jpg'

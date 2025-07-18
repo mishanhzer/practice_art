@@ -2,11 +2,11 @@ import React from 'react'
 import { ButtonNavigate } from '../ButtonNavigate/ButtonNavigate';
 import { ListItemsPage } from '../ListItemPage/ListItemsPages';
 
-import { arrowPages, doubleArrowPages } from "../../../../../assets/logo/logo";
+import { TypesWidgetPages } from "./types"
 
 import styles from '../../portfolio.module.scss'
 
-import { TypesWidgetPages } from "./types"
+import { arrowPages, doubleArrowPages } from "../../../../../assets/logo/logo";
 
 export const WidgetPages = ({ getStart, paginate, getEnd, dataPages }: TypesWidgetPages) => {
   return (

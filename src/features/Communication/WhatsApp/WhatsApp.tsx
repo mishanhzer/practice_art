@@ -1,4 +1,5 @@
 import React from "react"
+
 import { whatsAppImg } from "../../../assets/logo/logo"
 
 export const WhatsApp = () => {

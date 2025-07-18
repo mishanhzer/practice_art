@@ -1,7 +1,7 @@
 import React from "react"
 import 'reactjs-popup/dist/index.css';
 
-import { dataMenu } from './constant'
+import { dataMenu } from './constants'
 
 import './addPopup.scss'
 import styles from './navigationMenu.module.scss'

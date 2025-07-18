@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { twMerge } from "tailwind-merge";
 
 import { ArrowIcon } from "./ArrowIcon";
+
 import { LinkTypes } from "./types"
 
 import styles from '../../header.module.scss'

@@ -1,41 +1,31 @@
-import eslintPluginImport from "eslint-plugin-import";
-import simplePluginImportSort from "eslint-plugin-simple-import-sort";
+import eslintConfigPrettier from "eslint-config-prettier";
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import reactHooks from "eslint-plugin-react-hooks";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import js from "@eslint/js";
 
-export default {
-  plugins: {
-    import: true,
-    "simple-import-sort": simplePluginImportSort,
+export default [
+  {
+    ...js.configs.recommended,
+    ...eslintConfigPrettier,
+    ...eslintPluginPrettierRecommended,
+    // files: ["src/**/*.{js,jsx,ts,tsx}"],
+    languageOptions: {
+      ecmaVersion: 2020,
+    },
+    plugins: {
+      "simple-import-sort": simpleImportSort,
+      "eslint-prettier": eslintPluginPrettierRecommended,
+      "react-hooks": reactHooks,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+      "no-console": ["error", { allow: ["warn", "error"] }],
+    },
   },
-  rules: {
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
-    "import/sort-imports": [
-      "error",
-      {
-        "sort-imports": true,
-      },
-    ],
-    "import/order": [
-      "error",
-      {
-        groups: ["builtin", "external", "internal"],
-        pathGroups: [
-          {
-            pattern: "@/**",
-            group: "internal",
-            position: "before",
-          },
-        ],
-        pathGroupsExcludedImportTypes: ["@babel/runtime"],
-        "newlines-between": "always",
-        alphabetize: {
-          order: "asc",
-          caseInsensitive: true,
-        },
-      },
-    ],
-  },
-};
+];
 
 // import js from "@eslint/js";
 // import globals from "globals";

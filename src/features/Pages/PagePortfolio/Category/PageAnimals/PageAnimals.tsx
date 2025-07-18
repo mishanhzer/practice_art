@@ -6,12 +6,12 @@ import { PicturesContent } from "../../ui/PicturesContent/PicturesContent.tsx";
 import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
 import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
 
-import styles from '../../portfolio.module.scss'
+import { useAnimalsSelector, useOffsetAnimalsSelector } from "./selectors/animalsSelectors.tsx";
+import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelectors.tsx";
 
 import { urlAnimals, pathAnimals, animalsDataPages } from "./constants.ts";
 
-import { useAnimalsSelector, useOffsetAnimalsSelector } from "./selectors/animalsSelectors.tsx";
-import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelectors.tsx";
+import styles from '../../portfolio.module.scss'
 
 const PageAnimals = () => {
   const animals = useAnimalsSelector()

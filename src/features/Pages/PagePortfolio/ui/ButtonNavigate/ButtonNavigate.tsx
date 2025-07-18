@@ -1,8 +1,8 @@
 import React from "react"
 
-import styles from '../../portfolio.module.scss'
-
 import { TypesButtonNavigate } from "./types"
+
+import styles from '../../portfolio.module.scss'
 
 export const ButtonNavigate = ({ className, navigateFunc, source, name }: TypesButtonNavigate) => {
   return (
