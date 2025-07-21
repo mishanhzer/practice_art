@@ -1,33 +1,3 @@
-import eslintConfigPrettier from "eslint-config-prettier";
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
-import reactHooks from "eslint-plugin-react-hooks";
-import simpleImportSort from "eslint-plugin-simple-import-sort";
-import js from "@eslint/js";
-
-export default [
-  {
-    ...js.configs.recommended,
-    ...eslintConfigPrettier,
-    ...eslintPluginPrettierRecommended,
-    // files: ["src/**/*.{js,jsx,ts,tsx}"],
-    languageOptions: {
-      ecmaVersion: 2020,
-    },
-    plugins: {
-      "simple-import-sort": simpleImportSort,
-      "eslint-prettier": eslintPluginPrettierRecommended,
-      "react-hooks": reactHooks,
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error",
-      "no-console": ["error", { allow: ["warn", "error"] }],
-    },
-  },
-];
-
-// import js from "@eslint/js";
 // import globals from "globals";
 // import reactHooks from "eslint-plugin-react-hooks";
 // import reactRefresh from "eslint-plugin-react-refresh";
@@ -35,6 +5,7 @@ export default [
 // import simpleImportSort from "eslint-plugin-simple-import-sort";
 // import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 // import eslintConfigPrettier from "eslint-config-prettier";
+// import js from "@eslint/js";
 
 // export default tseslint.config(
 //   { ignores: ["dist"] },
@@ -89,19 +60,31 @@ export default [
 //   }
 // );
 
-// import pluginJs from "@eslint/js";
+import eslintConfigPrettier from "eslint-config-prettier";
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import reactHooks from "eslint-plugin-react-hooks";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import js from "@eslint/js";
 
-// export default [
-//   pluginJs.configs.recommended,
-//   {
-//     extends: ["some-other-config-you-use", "prettier"],
-//     rules: {
-//       "no-unused-vars": "warn",
-//       "no-undef": "warn",
-//     },
-//     plugins: {
-//       plugins: ["prettier-plugin-tailwindcss"],
-//       import: true,
-//     },
-//   },
-// ];
+export default [
+  {
+    ...js.configs.recommended,
+    ...eslintConfigPrettier,
+    ...eslintPluginPrettierRecommended,
+    // files: ["src/**/*.{js,jsx,ts,tsx}"],
+    languageOptions: {
+      ecmaVersion: 2020,
+    },
+    plugins: {
+      "simple-import-sort": simpleImportSort,
+      "eslint-prettier": eslintPluginPrettierRecommended,
+      "react-hooks": reactHooks,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+      "no-console": ["error", { allow: ["warn", "error"] }],
+    },
+  },
+];

@@ -31,7 +31,7 @@ export const ModalPortal = ({ position, handleClose, source, alt }: TypesModalPo
           onClick={() => handleClose()}
           className={`${styles.overlay}`}>
           <div onClick={(e) => e.stopPropagation()}
-            className={positionModal(styles.mainWrapperStyle, position)}
+            className={positionModal(styles.wrapperModal, position)}
           >
             <button onClick={handleClose} className={styles.close} />
             <img ref={ref} className={`absolute lozad`} src={source} alt={alt} />

@@ -10,7 +10,5 @@ export interface TypesDisplayedData {
 }
 
 export interface TypesPicturesContent {
-  stylesContainer: string;
   displayedData: TypesDisplayedData[];
-  stylesWrapperImg: string;
 }

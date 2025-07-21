@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import { WidgetPages } from "../../ui/WidgetPages/WidgetPages.tsx";
+import { Widget } from "../../ui/Widget/Widget.tsx";
 import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
 import { PicturesContent } from "../../ui/PicturesContent/PicturesContent.tsx";
 import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
@@ -49,14 +49,14 @@ const PageStillLife = () => {
   }
 
   const stillLifeData =
-    stillLifeDataPages(pathStillLife, styles.listItems,
+    stillLifeDataPages(pathStillLife, styles.item,
       () => getData('stillLife', urlStillLife, 'offsetStillLife', 0, 'pageStillLife', 1),
       () => getData('stillLife', urlStillLife, 'offsetStillLife', 9, 'pageStillLife', 2))
 
   const Content = () => {
     return (
       <>
-        <WidgetPages
+        <Widget
           getStart={getStart}
           getEnd={getEnd}
           paginate={paginate}
@@ -64,8 +64,6 @@ const PageStillLife = () => {
         />
         <PicturesContent
           displayedData={stillLife}
-          stylesContainer={styles.container}
-          stylesWrapperImg={styles.wrapperImg}
         />
         <WhatsApp />
       </>

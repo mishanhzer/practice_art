@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { WidgetPages } from "../../ui/WidgetPages/WidgetPages.tsx";
+import { Widget } from "../../ui/Widget/Widget.tsx";
 import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
 import { PicturesContent } from "../../ui/PicturesContent/PicturesContent.tsx";
 import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
@@ -49,13 +49,13 @@ const PagePeopleAndAnimals = () => {
   }
 
   const peopleAndAnimalsData =
-    peopleAndAnimalsDataPages(pathPeopleAndAnimals, styles.listItems,
+    peopleAndAnimalsDataPages(pathPeopleAndAnimals, styles.item,
       () => getData('peopleAndAnimals', urlPeopleAndAnimals, 'offsetPeopleAndAnimals', 0, 'pagePeopleAndAnimals', 1))
 
   const Content = () => {
     return (
       <>
-        <WidgetPages
+        <Widget
           getStart={getStart}
           getEnd={getEnd}
           paginate={paginate}
@@ -63,8 +63,6 @@ const PagePeopleAndAnimals = () => {
         />
         <PicturesContent
           displayedData={peopleAndAnimals}
-          stylesContainer={styles.container}
-          stylesWrapperImg={styles.wrapperImg}
         />
         <WhatsApp />
       </>

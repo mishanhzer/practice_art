@@ -1,4 +1,4 @@
-export interface TypesButtonNavigate {
+export interface TypesWidgetNavigation {
   className: string
   navigateFunc: () => void
   source: string

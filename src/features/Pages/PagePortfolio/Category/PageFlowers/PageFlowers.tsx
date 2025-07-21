@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import { WidgetPages } from "../../ui/WidgetPages/WidgetPages.tsx";
+import { Widget } from "../../ui/Widget/Widget.tsx";
 import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
 import { PicturesContent } from "../../ui/PicturesContent/PicturesContent.tsx";
 import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
@@ -49,7 +49,7 @@ const PageFlowers = () => {
   }
 
   const flowersData =
-    flowersDataPages(pathFlowers, styles.listItems,
+    flowersDataPages(pathFlowers, styles.item,
       () => getData('flowers', urlFlowers, 'offsetFlowers', 0, 'pageFlowers', 1),
       () => getData('flowers', urlFlowers, 'offsetFlowers', 9, 'pageFlowers', 2),
       () => getData('flowers', urlFlowers, 'offsetFlowers', 18, 'pageFlowers', 3))
@@ -57,7 +57,7 @@ const PageFlowers = () => {
   const Content = () => {
     return (
       <>
-        <WidgetPages
+        <Widget
           getStart={getStart}
           getEnd={getEnd}
           paginate={paginate}
@@ -65,8 +65,6 @@ const PageFlowers = () => {
         />
         <PicturesContent
           displayedData={flowers}
-          stylesContainer={styles.container}
-          stylesWrapperImg={styles.wrapperImg}
         />
         <WhatsApp />
       </>

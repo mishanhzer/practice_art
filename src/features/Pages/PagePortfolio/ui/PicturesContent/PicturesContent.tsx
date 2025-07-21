@@ -5,7 +5,9 @@ import { AnimationContainer } from "./AnimationContainer/AnimationContainer.tsx"
 
 import { TypesPicturesContent } from "./types"
 
-export const PicturesContent = ({ stylesContainer, displayedData, stylesWrapperImg }: TypesPicturesContent) => {
+import styles from '../../portfolio.module.scss'
+
+export const PicturesContent = ({ displayedData }: TypesPicturesContent) => {
   const [pictureName, setPictureName] = useState<string | null>('')
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>) => {
@@ -18,19 +20,19 @@ export const PicturesContent = ({ stylesContainer, displayedData, stylesWrapperI
   }
 
   return (
-    <div className={`${stylesContainer}`}>
+    <div className={styles.container}>
       {displayedData.map((item, i) => (
         <AnimationContainer key={i} >
           <div
             onClick={handleClick}
-            className={`${stylesWrapperImg}`} data-name={item.name}>
+            className={styles.wrapperImg} data-name={item.name}>
             {pictureName === item.name ?
               <ModalPortal
                 position={pictureName}
                 handleClose={handleClose}
                 source={item.file}
                 alt={item.name} /> : null}
-            <img className={`w-[350px] h-[350px] object-cover lozad`} src={item.sizes[0].url} alt={item.name} />
+            <img className={`${styles.imgContent} lozad`} src={item.sizes[0].url} alt={item.name} />
           </div>
         </AnimationContainer>
       ))

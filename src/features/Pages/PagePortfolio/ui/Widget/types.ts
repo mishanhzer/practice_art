@@ -1,6 +1,6 @@
-import { TypesAnimalsDataPages } from "../ListItemPage/types"
+import { TypesAnimalsDataPages } from "./WidgetPages/types"
 
-export interface TypesWidgetPages {
+export interface TypesWidget {
   getStart: () => void
   paginate: (str: string) => void
   getEnd: () => void

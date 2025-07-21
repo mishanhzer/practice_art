@@ -1,11 +1,12 @@
 import React from "react"
 
 import { TypeImagePortfolio } from "../types"
+import styles from '../portfolio.module.scss'
 
 export const PortfolioImage = ({ src, alt }: TypeImagePortfolio) => {
   return (
     <img
-      className={`min-w-min w-350 h-350`}
+      className={styles.imgPortfolio}
       src={src}
       alt={alt} />
   )
