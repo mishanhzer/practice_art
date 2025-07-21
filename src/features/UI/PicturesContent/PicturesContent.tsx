@@ -5,7 +5,7 @@ import { AnimationContainer } from "./AnimationContainer/AnimationContainer.tsx"
 
 import { TypesPicturesContent } from "./types"
 
-import styles from '../../portfolio.module.scss'
+import styles from '../../Pages/PagePortfolio/portfolio.module.scss'
 
 export const PicturesContent = ({ displayedData }: TypesPicturesContent) => {
   const [pictureName, setPictureName] = useState<string | null>('')

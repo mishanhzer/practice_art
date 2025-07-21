@@ -7,7 +7,7 @@ import { positionModal, portalBlock } from './constants';
 
 import { TypesModalPortal } from "./types"
 
-import styles from '../../../portfolio.module.scss'
+import styles from '../../../Pages/PagePortfolio/portfolio.module.scss'
 
 export const ModalPortal = ({ position, handleClose, source, alt }: TypesModalPortal) => {
   const ref = useRef(null)

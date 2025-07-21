@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Widget } from "../../ui/Widget/Widget.tsx";
 import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
-import { PicturesContent } from "../../ui/PicturesContent/PicturesContent.tsx";
+import { PicturesContent } from "../../../../UI/PicturesContent/PicturesContent.tsx";
 import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
 
 import { usePeopleAndAnimalsSelector, useOffsetPeopleAndAnimalsSelector } from "./selectors/peopleAndAnimalsSelectors.tsx";
