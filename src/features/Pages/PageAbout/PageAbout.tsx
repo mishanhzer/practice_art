@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 
-import { PicturesContent } from "../Portfolio/additionalUI/picturesContent/PicturesContent"
+import { PicturesContent } from "../../UI/PicturesContent/PicturesContent"
 
 import { LastWorks } from './LastWorks/LastWorks'
 import { Header } from './Header/Header'
@@ -14,7 +14,7 @@ import { urlAllWorks } from './constants'
 
 import styles from './about.module.scss'
 
-const About = () => {
+const PageAbout = () => {
   const works = useWorks()
   const getData = useGetData()
   const loading = useLoading()
@@ -24,19 +24,17 @@ const About = () => {
   }, [])
 
   return (
-    <div className="pb-[100px]">
-      <AboutHeader />
-      <LastWorksHeader />
+    <div className={styles.containerPageAbout}>
+      <Header />
+      <LastWorks />
       {loading === 'loading' ?
         <Spinner /> :
         <PicturesContent
-          stylesContainer={styles.lastWorksContainer}
-          displayedData={works}
-          stylesWrapperImg={styles.wrapperImg} />
+          displayedData={works} />
       }
       <WhatsApp />
     </div>
   )
 }
 
-export default About
+export default PageAbout
