@@ -16,14 +16,15 @@ import { Spinner } from "../../features/UI/Spinner/Spinner.tsx";
 // const StillLife = lazy(() => import('../pages/Portfolio/StillLife/StillLife.tsx'));
 // const PeopleAndAnimals = lazy(() => import('../pages/Portfolio/PeopleAndAnimals/PeopleAndAnimals.tsx'));
 // const About = lazy(() => import('../pages/About/About.tsx'))
+// const ContactMeAnt = lazy(() => import('../pages/ContactMe/ContactMeAnt.tsx'));
 const Portfolio = lazy(() => import('../../pages/Portfolio/Portfolio.tsx'));
 const Animals = lazy(() => import('../../pages/Animals/Animals.tsx'));
 const Flowers = lazy(() => import('../../pages/Flowers/Flowers.tsx'));
 const StillLife = lazy(() => import('../../pages/StillLife/StillLife.tsx'));
 const PeopleAndAnimals = lazy(() => import('../../pages/PeopleAndAnimals/PeopleAndAnimals.tsx'));
 const About = lazy(() => import('../../pages/About/About.tsx'));
+const Contact = lazy(() => import('../../pages/Contact/Contact.tsx'));
 
-const ContactMeAnt = lazy(() => import('../pages/ContactMe/ContactMeAnt.tsx'));
 const Shop = lazy(() => import('../pages/shop/Shop.tsx'))
 const ShopAnimals = lazy(() => import('../pages/shop/categories/ShopAnimals/ShopAnimals.tsx'))
 const ShopFlowers = lazy(() => import('../pages/shop/categories/ShopFlowers/ShopFlowers.tsx'))
@@ -49,7 +50,7 @@ const App = () => {
         <Suspense fallback={<Spinner />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path='/contact' element={<ContactMeAnt />} />
+            <Route path='/contact' element={<Contact />} />
             <Route path='/home' element={<Home />} />
 
             <Route path='/portfolio' element={<Portfolio />} />
