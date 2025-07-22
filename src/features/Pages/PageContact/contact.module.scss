@@ -22,30 +22,19 @@
   @apply text-[18px] text-[#636363] font-lora font-normal min-h-[160px] !important
 }
 
-// .classInput {
-//   @apply w-72 placeholder-gray-500 border p-2.5 outline-none rounded font-medium text-gray-500
-// }
 
-// .classMailAndMessage {
-//   @apply w-full border p-2.5 outline-none rounded text-gray-500
-// }
+// Стили добавления к основным стилям
+.addLastName {
+  @apply ml-[30px]
+}
 
-// .classInputAnt { 
-//   @apply h-[44px] text-[18px] text-[#636363] font-lora font-normal
-// }
+.addEmail {
+  @apply w-full mt-[15px]
+}
 
-// .classMessageAnt {
-//   @apply text-[18px] text-[#636363] font-lora font-normal min-h-[160px] !important
-// }
-
-
-// .classFlex {
-//   @apply flex flex-col
-// }
-
-
-
-
+.addMessage {
+  @apply w-full mt-[35px]
+}
 
 
 
