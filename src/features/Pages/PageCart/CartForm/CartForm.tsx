@@ -1,40 +1,26 @@
 import { useState, useEffect } from 'react'
 
-import { useStore } from '../../../../store/store'
-import { likeCart, deleteCart } from './CartInfoPictures/LogoCart/LogoCart'
-import { ButtonIncDec } from '../ui/ButtonIncDec/ButtonIncDec'
-
 import { CartInfoPictures } from './CartInfoPictures/CartInfoPictures'
 import { CartCounter } from './CartCounter/CartCounter'
 import { CartSalary } from './CartSalary/CartSalary'
 
-import { useCartFormSelector, useSetCartTest, useCartMain } from '../selectors/cartFormSelector'
-
-import { TypesPictureCart, TypeEvent, TypeFuncOperation } from './types'
+import { useSetCart, useCartMain, useSetAddInCart, useAddInCart, useGetDeleteItemCart, useAddProperty } from '../selectors/cartFormSelector'
 
 import styles from '../cart.module.scss'
 
 export const CartForm = ({ picturesCart, getDeleteTest, setViewDeleteBtn, discount }) => {
   const [oldSalary, setOldSalary] = useState(0)
-
-  const [cart, setCart] = useState(picturesCart);
-  const setCartTest = useStore(state => state.setCartTest)
-
-  const setAddInCart = useStore(state => state.setAddInCart)
-  const addInCart = useStore(state => state.addInCart)
-
-  const getDeleteItemCart = useStore(state => state.getDeleteItemCart)
-
-  const cartMain = useStore(state => state.cart)
-
-  const addProperty = useStore(state => state.addProperty)
-
   const [cartId, setCartId] = useState(0)
-
   const [btnId, setBtnId] = useState(0)
   const [activeLike, setActiveLike] = useState(false)
+  const [cart, setCart] = useState(picturesCart);
 
-  console.log(addInCart)
+  const setCartTest = useSetCart()
+  const setAddInCart = useSetAddInCart()
+  const addInCart = useAddInCart()
+  const getDeleteItemCart = useGetDeleteItemCart()
+  const cartMain = useCartMain()
+  const addProperty = useAddProperty()
 
   useEffect(() => { // отвечает за увеличение количества товара в корзине
     setCartTest(cart)
@@ -60,12 +46,6 @@ export const CartForm = ({ picturesCart, getDeleteTest, setViewDeleteBtn, discou
     setTimeout(() => {
       setAddInCart(false)
     }, 3000)
-
-    // const changeActive = (boolean: boolean) => {
-    //   addProperty(elem, boolean);
-    // };
-
-    // changeActive(false)
   }
 
   const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>) => {
@@ -103,53 +83,22 @@ export const CartForm = ({ picturesCart, getDeleteTest, setViewDeleteBtn, discou
         return (
           <div key={picture.id} className={styles.cartFormPictureContainer}>
             <div className={styles.cartFormPictureWrapperItems}>
-              <div className={styles.cartFormWrapperPictureAndDescr}>
-                <img src={picture.id || !picture.id ? picture?.sizes?.[0].url : ''} className={styles.cartFormPictureImg} alt={picture.name} />
-                <div className={styles.cartFormPictureDescr}>
-                  <h3 className={styles.cartFormPictureName}>{picture.name}</h3>
-                  <div className={styles.cartFormPictureSizeAndMaterials}>Размер: {picture.size}</div>
-                  <div className={styles.cartFormPictureSizeAndMaterials}>Материалы: {picture.materials}</div>
-                  <div className={styles.cartFormPictureLikeAndDeleteContainer}>
-                    {activeLike && picture.id === btnId ?
-                      <button onClick={handleLikeClick} data-btn={picture.id} className={classNames(styles.cartFormPictureLikeAndDelete, styles.cartFormPictureLikeActive)}>
-                        {likeCart()}
-                        <div className={styles.cartFormPictureLikeActiveBlock}></div>
-                      </button> :
-                      <button onClick={handleLikeClick} data-btn={picture.id} className={`${styles.cartFormPictureLikeAndDelete}`}>
-                        {likeCart()}
-                      </button>}
-                    <button
-                      onClick={handleTestClick}
-                      data-id={picture.id}
-                      className={styles.cartFormPictureLikeAndDelete}>
-                      {deleteCart()}
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.cartFormIncreaseAndDecrease}>
-                {picture.amount > 1 ?
-                  <ButtonIncDec
-                    func={(e) => handleIncreaseSalary(e, picture.salary, -1, (a, b) => a - b)}
-                    disabled={picture.amount > 1 ? false : true}
-                    style={styles.btnMinus}
-                    data={picture.id} /> :
-                  <ButtonIncDec
-                    func={(e) => handleIncreaseSalary(e, picture.salary, -1, (a, b) => a - b)}
-                    disabled={picture.amount === 1 ? true : false}
-                    style={styles.btnMinus}
-                    data={picture.id} />
-                }
-                <div className={styles.cartFormIncreaseAndDecreaseValue}>{picture.amount}</div>
-                <ButtonIncDec
-                  func={(e) => handleIncreaseSalary(e, picture.salary, 1, (a, b) => a + b)}
-                  disabled={picture.amount > 1 && cartId === picture.id ? false : false}
-                  style={styles.btnPlus}
-                  data={picture.id} />
-              </div>
-
-              <div className={styles.cartFormSalary}>{!discount ? picture.salary : picture.salary + picture.salary * 0.2} ₽</div>
+              <CartInfoPictures
+                styles={styles}
+                picture={picture}
+                handleLikeClick={handleLikeClick}
+                activeLike={activeLike}
+                handleTestClick={handleTestClick}
+                btnId={btnId} />
+              <CartCounter
+                styles={styles}
+                picture={picture}
+                handleIncreaseSalary={handleIncreaseSalary}
+                cartId={cartId} />
+              <CartSalary
+                styles={styles}
+                picture={picture}
+                discount={discount} />
             </div>
           </div>
         )
