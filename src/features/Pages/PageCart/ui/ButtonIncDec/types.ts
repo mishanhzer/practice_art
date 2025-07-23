@@ -1,6 +1,6 @@
 export interface TypesButtonIncDec {
-  func: () => void
+  func: (e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>) => void
   disabled: boolean
   style: string
-  data: string
+  data?: number
 }

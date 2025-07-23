@@ -1,14 +1,23 @@
-const CartEmpty = () => {
+import { NavLink } from "react-router"
+
+import { textHeader, textDescr, textLink } from './constants'
+
+import { TypesCartEmpty } from './types'
+
+import emptyCart from '../../../../assets/images/cartImage/emptyCart.jpg'
+
+export const CartEmpty = ({ styles }: TypesCartEmpty) => {
   return (
     <div className={styles.cartEmptyContainer}>
       <div className={styles.cartEmptyImg}>
-        <img src={emptyCart} alt="" />
+        <img src={emptyCart} alt="emptyCart" />
       </div>
-      <h2 className={styles.cartEmptyHeader}>В корзине пока пусто</h2>
-      <div className={styles.cartEmptyDescr}>Загляните в магазин — там картины, которые могут вам понравиться</div>
+      <h2 className={styles.cartEmptyHeader}>{textHeader}</h2>
+      <div className={styles.cartEmptyDescr}>{textDescr}</div>
       <NavLink
         to="/shop"
-        className={styles.cartEmptyBtn}>Перейти в магазин
+        className={styles.cartEmptyBtn}>
+        {textLink}
       </NavLink>
     </div>
   )

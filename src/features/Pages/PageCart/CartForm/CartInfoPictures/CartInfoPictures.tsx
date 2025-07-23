@@ -1,7 +1,10 @@
 import classNames from "classnames"
+
 import { likeCart, deleteCart } from './LogoCart/LogoCart'
 
-export const CartInfoPictures = ({ styles, picture, handleLikeClick, activeLike, handleTestClick, btnId }) => {
+import { TypesCartInfoPictures } from './types'
+
+export const CartInfoPictures = ({ styles, picture, handleLikeClick, activeLike, handleTestClick, btnId }: TypesCartInfoPictures) => {
   return (
     <div className={styles.cartFormWrapperPictureAndDescr}>
       <img src={picture.id || !picture.id ? picture?.sizes?.[0].url : ''} className={styles.cartFormPictureImg} alt={picture.name} />

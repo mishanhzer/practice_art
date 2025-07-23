@@ -1,21 +1,21 @@
-const CartOrder = ({ picturesCart, discount }) => {
-  const amount = picturesCart.map(item => item.amount).reduce((a: number, b: number) => a + b, 0)
-  const salary = picturesCart.map(item => item.salary).reduce((a: number, b: number) => a + b, 0)
-  const salaryDiscount = salary
+import { useCartOrderSelectors } from '../selectors/cartOrderSelector'
+
+export const CartOrder = ({ styles, discount }) => {
+  const dataOrder = useCartOrderSelectors()
   return (
     <div className={styles.cartOrderContainer}>
       <h2 className={styles.cartOrderHeader}>Выбрать адрес доставки</h2>
       <div className={styles.cartOrderGoodsAndDiscount}>
-        <div>Товары, {amount} шт.</div>
-        <div>{!discount ? salaryDiscount : salary + salary * 0.2} ₽</div>
+        <div>Товары, {dataOrder.amount} шт.</div>
+        <div>{!discount ? dataOrder.salaryDiscount : dataOrder.salaryIncrease} ₽</div>
       </div>
       {!discount ? <div className={styles.cartOrderGoodsAndDiscount}>
         <div>Моя скидка</div>
-        <div><span>−</span>{salary * 0.2} ₽</div>
+        <div><span>−</span>{dataOrder.salary * 0.2} ₽</div>
       </div> : null}
       <div className={styles.cartOrderTotal}>
         <div>Итого</div>
-        <div>{!discount ? salaryDiscount : salary + salary * 0.2} ₽</div>
+        <div>{!discount ? dataOrder.salaryDiscount : dataOrder.salaryIncrease} ₽</div>
       </div>
       <button className={styles.cartOrderBtn}>Заказать</button>
     </div>
