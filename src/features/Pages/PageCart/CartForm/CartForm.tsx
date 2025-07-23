@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
-import classNames from 'classnames'
+
+import { CartInfoPictures } from './CartCounter/CartCounter'
 
 import { useSetCartTest, useCartMain, useSetAddInCart, useAddInCart, useGetDeleteItemCart } from './cartFormSelector'
 
 import styles from '../cart.module.scss'
-
-import { deleteCart, likeCart } from './LogoCart/LogoCart'
 
 const CartForm = ({ picturesCart, getDeleteTest, setViewDeleteBtn, discount }) => {
   const [oldSalary, setOldSalary] = useState(0)
@@ -81,7 +80,15 @@ const CartForm = ({ picturesCart, getDeleteTest, setViewDeleteBtn, discount }) =
         return (
           <div key={picture.id} className={styles.cartFormPictureContainer}>
             <div className={styles.cartFormPictureWrapperItems}>
-              <div className={styles.cartFormWrapperPictureAndDescr}>
+              <CartInfoPictures
+                styles={styles}
+                picture={picture}
+                handleLikeClick={handleLikeClick}
+                activeLike={activeLike}
+                handleTestClick={handleTestClick}
+                btnId={btnId} />
+
+              {/* <div className={styles.cartFormWrapperPictureAndDescr}>
                 <img src={picture.id || !picture.id ? picture?.sizes?.[0].url : ''} className={styles.cartFormPictureImg} alt={picture.name} />
                 <div className={styles.cartFormPictureDescr}>
                   <h3 className={styles.cartFormPictureName}>{picture.name}</h3>
@@ -104,7 +111,7 @@ const CartForm = ({ picturesCart, getDeleteTest, setViewDeleteBtn, discount }) =
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className={styles.cartFormIncreaseAndDecrease}>
                 {picture.amount > 1 ?
@@ -123,7 +130,9 @@ const CartForm = ({ picturesCart, getDeleteTest, setViewDeleteBtn, discount }) =
                 <CartFormButtonIncDec func={(e) => handleIncreaseSalary(e, picture.salary, 1, (a, b) => a + b)} disabled={picture.amount > 1 && cartId === picture.id ? false : false} style={styles.btnPlus} data={picture.id} />
               </div>
 
-              <div className={styles.cartFormSalary}>{!discount ? picture.salary : picture.salary + picture.salary * 0.2} ₽</div>
+              <div className={styles.cartFormSalary}>
+                {!discount ? picture.salary : picture.salary + picture.salary * 0.2} ₽
+              </div>
             </div>
           </div>
         )
