@@ -1,6 +1,6 @@
 import { text } from './constants'
 
-import styles from '../popupCart.module.scss'
+import styles from '../cart.module.scss'
 
 import check from '../../../../assets/images/cartImage/check.svg'
 

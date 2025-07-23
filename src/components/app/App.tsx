@@ -17,6 +17,8 @@ import { Spinner } from "../../features/UI/Spinner/Spinner.tsx";
 // const PeopleAndAnimals = lazy(() => import('../pages/Portfolio/PeopleAndAnimals/PeopleAndAnimals.tsx'));
 // const About = lazy(() => import('../pages/About/About.tsx'))
 // const ContactMeAnt = lazy(() => import('../pages/ContactMe/ContactMeAnt.tsx'));
+const Cart = lazy(() => import('../pages/Cart/Cart.tsx'))
+
 const Portfolio = lazy(() => import('../../pages/Portfolio/Portfolio.tsx'));
 const Animals = lazy(() => import('../../pages/Animals/Animals.tsx'));
 const Flowers = lazy(() => import('../../pages/Flowers/Flowers.tsx'));
@@ -24,13 +26,13 @@ const StillLife = lazy(() => import('../../pages/StillLife/StillLife.tsx'));
 const PeopleAndAnimals = lazy(() => import('../../pages/PeopleAndAnimals/PeopleAndAnimals.tsx'));
 const About = lazy(() => import('../../pages/About/About.tsx'));
 const Contact = lazy(() => import('../../pages/Contact/Contact.tsx'));
+// const Cart = lazy(() => import('../../pages/Cart/Cart.tsx'));
 
 const Shop = lazy(() => import('../pages/shop/Shop.tsx'))
 const ShopAnimals = lazy(() => import('../pages/shop/categories/ShopAnimals/ShopAnimals.tsx'))
 const ShopFlowers = lazy(() => import('../pages/shop/categories/ShopFlowers/ShopFlowers.tsx'))
 const ShopStillLife = lazy(() => import('../pages/shop/categories/ShopStillLife/ShopStillLife.tsx'))
 const ShopPeopleAndAnimals = lazy(() => import('../pages/shop/categories/ShopPeopleAndAnimals/ShopPeopleAndAnimals.tsx'))
-const Cart = lazy(() => import('../pages/Cart/Cart.tsx'))
 
 const Header = lazy(() => import('../../features/Navigation/HeaderNavigation/Header.tsx'));
 const NavigationMenu = lazy(() => import('../../features/Navigation/NavigationMenu/NavigationMenu.tsx'));

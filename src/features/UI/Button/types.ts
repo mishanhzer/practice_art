@@ -7,5 +7,5 @@ export interface TypesButton {
   mx?: string
   turn: string
   translateX: string
-  func?: () => void
+  func: () => void
 }

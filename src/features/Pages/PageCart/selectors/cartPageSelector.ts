@@ -20,3 +20,23 @@ export const useCartPageSelector = () => {
     addInCart
   }
 }
+
+export const useDiscount = () => {
+  const discount = useStore(state => state.discount)
+  return discount
+}
+
+export const useCart = () => {
+  const cart = useStore(state => state.cart)
+  return cart
+}
+
+export const useGetDeleteTest = () => {
+  const getDeleteTest = useStore(state => state.getDeleteTest)
+  return getDeleteTest
+}
+
+export const useDeleteDuplicatePicture = () => {
+  const deleteDuplicatePicture = useStore(state => state.deleteDuplicatePicture)
+  return deleteDuplicatePicture
+}

@@ -9,6 +9,7 @@ export const useCartOrderSelectors = () => {
   const salaryIncrease = salary + salary * 0
 
   return {
+    picturesCart,
     amount, 
     salary,
     salaryDiscount,
