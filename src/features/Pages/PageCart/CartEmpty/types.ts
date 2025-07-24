@@ -1,3 +1,5 @@
+import {TypeStyles} from '../types'
+
 export interface TypesCartEmpty {
-  styles: Record<string, string>
+  styles: TypeStyles
 }

@@ -1,33 +1,22 @@
-import classNames from "classnames"
-
-import { likeCart, deleteCart } from './LogoCart/LogoCart'
+import { ButtonsLikeDelete } from '../../ui/ButtonIncDec/ButtonsLikeDelete'
 
 import { TypesCartInfoPictures } from './types'
 
 export const CartInfoPictures = ({ styles, picture, handleLikeClick, activeLike, handleTestClick, btnId }: TypesCartInfoPictures) => {
   return (
-    <div className={styles.cartFormWrapperPictureAndDescr}>
-      <img src={picture.id || !picture.id ? picture?.sizes?.[0].url : ''} className={styles.cartFormPictureImg} alt={picture.name} />
-      <div className={styles.cartFormPictureDescr}>
-        <h3 className={styles.cartFormPictureName}>{picture.name}</h3>
-        <div className={styles.cartFormPictureSizeAndMaterials}>Размер: {picture.size}</div>
-        <div className={styles.cartFormPictureSizeAndMaterials}>Материалы: {picture.materials}</div>
-        <div className={styles.cartFormPictureLikeAndDeleteContainer}>
-          {activeLike && picture.id === btnId ?
-            <button onClick={handleLikeClick} data-btn={picture.id} className={classNames(styles.cartFormPictureLikeAndDelete, styles.cartFormPictureLikeActive)}>
-              {likeCart()}
-              <div className={styles.cartFormPictureLikeActiveBlock}></div>
-            </button> :
-            <button onClick={handleLikeClick} data-btn={picture.id} className={`${styles.cartFormPictureLikeAndDelete}`}>
-              {likeCart()}
-            </button>}
-          <button
-            onClick={handleTestClick}
-            data-id={picture.id}
-            className={styles.cartFormPictureLikeAndDelete}>
-            {deleteCart()}
-          </button>
-        </div>
+    <div className={styles.cartFormDescrWrapper}>
+      <img src={picture.id || !picture.id ? picture?.sizes?.[0].url : ''} className={styles.cartFormImg} alt={picture.name} />
+      <div className={styles.cartFormDescr}>
+        <h3 className={styles.cartFormName}>{picture.name}</h3>
+        <div className={styles.cartFormInfo}>Размер: {picture.size}</div>
+        <div className={styles.cartFormInfo}>Материалы: {picture.materials}</div>
+        <ButtonsLikeDelete
+          styles={styles}
+          picture={picture}
+          handleLikeClick={handleLikeClick}
+          handleTestClick={handleTestClick}
+          activeLike={activeLike}
+          btnId={btnId} />
       </div>
     </div>
   )

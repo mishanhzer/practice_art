@@ -16,7 +16,7 @@ export const CartEmpty = ({ styles }: TypesCartEmpty) => {
       <div className={styles.cartEmptyDescr}>{textDescr}</div>
       <NavLink
         to="/shop"
-        className={styles.cartEmptyBtn}>
+        className={styles.cartEmptyButton}>
         {textLink}
       </NavLink>
     </div>

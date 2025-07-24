@@ -1,7 +1,7 @@
-import { TypesSizes, TypeEvent, TypesPictureCart } from "../types"
+import { TypeEvent, TypesPictureCart, TypeStyles } from "../../types"
 
 export interface TypesCartInfoPictures {
-  styles: Record<string, string>
+  styles: TypeStyles
   picture: TypesPictureCart
   handleLikeClick: (e: TypeEvent) => void
   activeLike: boolean

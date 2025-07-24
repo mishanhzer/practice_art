@@ -1,31 +1,9 @@
+import { TypesPictureCart } from "../types"
+
 export interface TypesCartForm {
-   picturesCart: any
-   getDeleteTest: any 
-   setViewDeleteBtn: any
-   discount: any
+   picturesCart: TypesPictureCart[]
+   getDeleteTest: (elem: number) => void
+   setViewDeleteBtn: React.Dispatch<React.SetStateAction<number | undefined>>
+   discount: boolean
 }
 
-export interface TypesSizes {
-  name: string
-  url: string
-}
-
-export interface TypesPictureCart {
-  active?: boolean
-  description?: string
-  file?: string
-  id?: number
-  inStock?: boolean
-  materials?: string
-  name?: string
-  nameImg?: string
-  path?: string
-  preview?: string
-  salary: number
-  size?: string
-  sizes?: TypesSizes[]
-  amount: number
-}
-
-export type TypeEvent = React.MouseEvent<HTMLButtonElement | HTMLDivElement>
-export type TypeFuncOperation = (a: number, b: number) => number
