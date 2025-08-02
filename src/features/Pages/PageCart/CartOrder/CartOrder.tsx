@@ -1,3 +1,6 @@
+import { CartOrderInfo } from './CartOrderInfo/CartOrderInfo'
+import { CartOrderTotal } from './CartOrderTotal/CartOrderTotal'
+
 import { TypesCartOrder } from './types'
 
 export const CartOrder = ({ picturesCart, styles, discount }: TypesCartOrder) => {
@@ -9,18 +12,18 @@ export const CartOrder = ({ picturesCart, styles, discount }: TypesCartOrder) =>
   return (
     <div className={styles.cartOrderContainer}>
       <h2 className={styles.cartOrderHeader}>Выбрать адрес доставки</h2>
-      <div className={styles.cartOrderInfo}>
-        <div>Товары, {amount} шт.</div>
-        <div>{!discount ? salaryDiscount : salaryIncrease} ₽</div>
-      </div>
-      {!discount ? <div className={styles.cartOrderInfo}>
-        <div>Моя скидка</div>
-        <div><span>−</span>{salary * 0.2} ₽</div>
-      </div> : null}
-      <div className={styles.cartOrderTotal}>
-        <div>Итого</div>
-        <div>{!discount ? salaryDiscount : salaryIncrease} ₽</div>
-      </div>
+      <CartOrderInfo
+        styles={styles}
+        amount={amount}
+        discount={discount}
+        salaryDiscount={salaryDiscount}
+        salaryIncrease={salaryIncrease}
+        salary={salary} />
+      <CartOrderTotal
+        styles={styles}
+        discount={discount}
+        salaryDiscount={salaryDiscount}
+        salaryIncrease={salaryIncrease} />
       <button className={styles.cartOrderButton}>Заказать</button>
     </div>
   )

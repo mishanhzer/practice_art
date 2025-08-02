@@ -4,83 +4,9 @@ import { persist, devtools, createJSONStorage } from "zustand/middleware"; // д
 
 import axios from "axios";
 
-import {
-  _transform,
-} from '../utils/useTest'
+import { TypesPictureCart, TypesStore } from "./types";
 
-import {
-  TypesDataWorks, TypesSizes
-} from "../assets/images/Images"
-
-export interface TypesPictureCart {
-  active?: boolean
-  description?: string
-  file?: string
-  id?: number
-  inStock?: boolean
-  materials?: string
-  name?: string
-  nameImg?: string
-  path?: string
-  preview?: string
-  salary: number
-  size?: string
-  sizes?: TypesSizes[]
-  amount: number
-}
-
-interface TypesStore {
-  works: TypesDataWorks[]
-  animals: TypesDataWorks[]
-  flowers: TypesDataWorks[]
-  stillLife: TypesDataWorks[]
-  peopleAndAnimals: TypesDataWorks[]
-  loading: string
-  getData: (category: string, url: string, offsetName: string, offset: number, pageName: string, page?: number) => void
-  offsetAllWorks: number
-  offsetAnimals: number
-  offsetFlowers: number
-  offsetStillLife: number
-  offsetPeopleAndAnimals: number
-  pageAllWorks: number
-  pageAnimals: number
-  pageFlowers: number
-  pageStillLife: number
-  pagePeopleAndAnimals: number
-
-  pictureCart: TypesPictureCart
-  picturesCart: TypesPictureCart[]
-
-  getPictureCart: (picture: TypesPictureCart) => void
-  getDeleteTest: (dataId: number) => void
-  deleteDuplicatePicture: () => void
-  getPicturesCart: () => void
-
-  addInCart: boolean
-  setAddInCart: (active: boolean) => void
-
-  cart: TypesPictureCart[]
-  setCartTest: (cart: TypesPictureCart[]) => void
-
-  testCart: TypesPictureCart[]
-  setCartActiveItems: (cart: TypesPictureCart[]) => void
-
-  discount: boolean
-  setDiscount: (bool: boolean) => void
-
-  testData: TypesPictureCart[]
-  setTestData: (data: TypesPictureCart[]) => void
-
-  setNewData: (data: TypesPictureCart[]) => void
-
-  isAddedToCart: {
-    [key: number]: boolean
-  }
-
-  addProperty: (property: number, value: boolean) => void
-
-  getDeleteItemCart: (dataId: number) => void
-}
+import { _transform } from '../utils/useTransform'
 
 export const useStore = create<TypesStore>()(
   devtools(
@@ -108,7 +34,7 @@ export const useStore = create<TypesStore>()(
         amount: 0,
         salary: 0,
       },
-      // pictureCart: {},
+
       picturesCart: [],
 
       cart: [],
@@ -117,7 +43,7 @@ export const useStore = create<TypesStore>()(
 
       discount: false,
 
-      testData: [],
+      newData: [],
 
       isAddedToCart: {},
 
@@ -131,11 +57,7 @@ export const useStore = create<TypesStore>()(
         set((state) => ({ isAddedToCart: { ...state.isAddedToCart, [property]: value } })),
 
       setNewData: (data) => {
-        set({testData: data})
-      },
-    
-      setTestData: (data) => {
-        set({testData: data})
+        set({newData: data})
       },
 
       setDiscount: (bool: boolean) => {

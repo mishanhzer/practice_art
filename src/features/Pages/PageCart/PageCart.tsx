@@ -4,6 +4,7 @@ import { useStore } from "../../../store/store";
 
 import { usePicturesCartSelector, useCartSelector, useDiscountSelector, useGetDeleteSelector, useDeleteDuplicatePictureSelector, useAddInCartSelector } from './selectors/cartPageSelector'
 
+import { TitlePage } from "../TitlePage/TitlePage";
 import { WhatsApp } from "../../Communication/WhatsApp/WhatsApp";
 import { PopupCart } from "./PopupCart/PopupCart"
 
@@ -36,6 +37,7 @@ const PageCart = () => {
 
   return (
     <>
+      <TitlePage name='Корзина' content='Page for buy pictures' />
       {addInCart ? <PopupCart /> : null}
       <div className={styles.container}>
         {cart.length ?

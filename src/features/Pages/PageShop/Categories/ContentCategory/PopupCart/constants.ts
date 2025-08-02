@@ -1,0 +1,1 @@
+export const text:string = 'Товар добавлен в корзину'

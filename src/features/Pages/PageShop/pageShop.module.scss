@@ -1,0 +1,206 @@
+// Page Shop
+.container {
+  @apply flex justify-between mx-10
+}
+
+.wrapperImg {
+  @apply relative opacity-100;
+    &:hover {
+      @apply cursor-pointer;
+    }
+    &:before:hover {
+      @apply animate-animateOpacityBefore
+    }
+    &:after {
+      @apply content-[''] absolute top-0 left-0 hover:bg-[rgba(201,228,202,0.5)] h-full w-full
+    }
+    &:after:hover {
+      @apply animate-animateOpacityAfter
+    }
+}
+
+.image {
+  @apply object-cover w-[330px] h-[330px]
+}
+
+.header {
+  @apply font-serif pt-[1em] pb-[1.5em] text-center text-[#777777] text-[16px] font-normal leading-[1.8em]
+}
+
+// Content Category
+.containerCategory {
+  @apply w-[75%] flex flex-wrap justify-between mx-[auto]
+}
+
+.picture { // Стиль блока при наведении на картину
+  @apply mt-[35px] bg-[white] inline-block relative mb-[75px] pb-[15px] rounded-md;
+    &:hover {
+      @apply cursor-pointer;
+    }
+}
+
+.pictureInStock { // Стиль, когда картина есть в наличии
+  @apply opacity-100
+}
+
+.pictureSoldOut { // Стиль, когда картина продана
+  @apply opacity-60 h-[100%]
+}
+
+.contentImage {
+  @apply object-cover w-[330px] h-[330px] rounded-t-md
+}
+
+.name { // Стиль названия картины
+  @apply text-[15px] ml-[10px] mt-[5px] font-[500]
+}
+
+.categoryContainer {
+  @apply bg-[#edeef0] pb-[50px]
+}
+
+// ContentCategory/inCart (Стили блока кнопки добавления в корзину)
+.inCartContainer {
+  @apply flex justify-center absolute w-[100%] bg-[white] rounded-md h-[70px]
+}
+
+.inCart {
+  @apply w-[80%] text-[18px] font-[500] font-[roboto] h-[40px] bg-[rgba(0,91,255,1)] text-white flex justify-center items-center my-[auto] rounded-md disabled:opacity-60 hover:opacity-80
+}
+
+.inCartActive {
+  @apply w-[80%] text-[18px] font-[500] font-[roboto] h-[40px] bg-[rgba(0,91,255,.2)] text-[rgba(0,91,255,1)] flex justify-center items-center my-[auto] rounded-md disabled:opacity-60 hover:bg-[rgba(0,91,255,.3)]
+}
+
+
+// ContentCategory/Like (Стили логотипа "Избранное")
+.containerLike {
+  @apply absolute top-0 right-0 w-[50px] h-[50px] flex items-center justify-center
+}
+
+// ContentCategory/PopupCart
+.popupCartContainer {
+  @apply fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-[50] animate-animateOpacityBefore;
+}
+
+.popupCartWrapper {
+  @apply flex relative mx-auto min-h-[36px] w-[240px] max-w-[calc(100vw-32px)] bg-[rgba(36,36,36,.9)] text-white pt-[7px] pr-[12px] pb-[9px] pl-[40px] rounded-[8px] text-[14px];
+}
+
+.popupCartImage {
+  @apply w-[18px] absolute left-[16px] top-[50%] translate-y-[-50%];
+}
+
+// @keyframes showModal { // Анимация всплытия модального окна сверху к центру страницы и обратно
+//   0% {
+//     top: -50px;
+//   }
+//   20% {
+//     top: 50%;
+//     transform: translateX(-50%) translateY(-50%);
+//   }
+//   50% {
+//     top: 50%;
+//     transform: translateX(-50%) translateY(-50%);
+//   }
+//   100% {
+//     top: -50px;
+//   }
+// }
+
+// ContentCategory/Salary
+.salary { // Cтили цен
+  @apply flex items-center ml-[10px] mt-[15px] font-bold text-[20px] leading-[24px] text-[#f44]
+}
+
+.salaryWithOutDiscount {
+  @apply text-[#868695] text-[13px] ml-[6px] line-through
+}
+
+.salaryWithDiscount {
+  @apply ml-[6px] text-[13px]
+}
+
+.animateDiscount {
+  @apply animate-animateOpacityBefore 
+}
+
+
+// SubscribePanel
+.discount {
+  @apply relative w-[16%] px-[15px] py-[5px] mx-auto mb-[30px] flex items-center border-[0.5px] border-[#868695] border-solid rounded-[20px]
+}
+
+.titleDiscount {
+  @apply text-[#868695] ml-[10px]
+}
+
+.value {
+  @apply absolute top-[20%] right-[7%] text-[14px] font-[600] text-[#005bff] ml-[10px]
+} 
+
+// стили тумблера
+.tumbler {
+  @apply ml-[10px]
+}
+
+.switch { // контейнер для переключателя
+  @apply relative inline-block w-[45px] h-[25.5px] 
+}
+
+.switch input { // скрываем дефолтные стили тумблера
+  @apply opacity-0 w-0 h-0
+}
+
+.slider { // стили для кастомного тумблера - делаем его сначала серым (занимает все пространство контейнера)
+  @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-[#ccc] transition duration-[.4s]
+}
+
+.slider:before { // псевдоэлемент - кружок внутри тумблера, который будет перемещаться
+  @apply absolute content-[''] h-[19.5px] w-[19.5px] left-[3px] bottom-[3px] bg-white transition duration-[.4s]
+}
+
+input:checked + .slider { // когда тумблер активен меняем цвет фона кастомного тумблера
+  @apply bg-[rgba(0,91,255,1)]
+}
+
+input:checked + .slider::before { // когда тумблер активен перемещаем кружок вправо
+  @apply translate-x-[19.5px];
+}
+
+.slider.round {
+  @apply rounded-[25.5px] 
+}
+
+.slider:before {
+  @apply rounded-[50%]
+}
+
+.slider.active {
+  /* стили для активного тумблера */
+  @apply bg-[rgba(0,91,255,1)];
+}
+
+.slider.active::before {
+  /* стили для активного тумблера */
+  @apply translate-x-[19.5px];
+}
+
+// .shopBlockNotActive { // Стиль блока, когда нет наведения на картину
+//   @apply h-[85%] mt-[35px] bg-[white] inline-block relative mb-[75px] pb-[15px] rounded-md;
+//     &:hover {
+//       @apply cursor-pointer;
+//     }
+// }
+
+// стиль кнопки "Загрузить ещё"
+// .loadMore { 
+//   @apply flex rounded-md items-center justify-center mx-auto mt-[20px] w-[250px] h-[60px] bg-[rgba(0,91,255,1)] text-[22px] text-white font-[roboto]
+// }
+
+
+
+
+
+
+
