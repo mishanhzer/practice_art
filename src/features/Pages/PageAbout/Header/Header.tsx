@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { headerText, subHeaderText, descriptionText } from './contstants'
 
 import styles from '../about.module.scss'

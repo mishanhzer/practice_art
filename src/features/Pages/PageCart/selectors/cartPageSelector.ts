@@ -1,6 +1,6 @@
 import {useStore} from '../../../../store/store'
 
-export const useCartPageSelector = () => {
+export const useCartPageSelectors = () => {
   const picturesCart = useStore(state => state.picturesCart)
   const cart = useStore(state => state.cart)
   const discount = useStore(state => state.discount)
@@ -17,34 +17,4 @@ export const useCartPageSelector = () => {
     addInCart
   }
 }
-
-export const usePicturesCartSelector = () => {
-  const picturesCart = useStore(state => state.picturesCart)
-  return picturesCart
-}
- 
-export const useCartSelector = () => {
-  const cart = useStore(state => state.cart)
-  return cart
-}
-export const useDiscountSelector = () => {
-    const discount = useStore(state => state.discount)
-    return discount
-  }
- 
-export const useGetDeleteSelector = () => {
-  const getDeleteTest = useStore(state => state.getDeleteTest)
-  return getDeleteTest
-}
-
-export const useDeleteDuplicatePictureSelector = () => {
-  const deleteDuplicatePicture = useStore(state => state.deleteDuplicatePicture)
-  return deleteDuplicatePicture
-}
-  
-export const useAddInCartSelector = () => {
-  const addInCart = useStore(state => state.addInCart)
-  return addInCart
-}
-
   

@@ -1,5 +1,3 @@
-import React from "react"
-
 import { TypesWidgetNavigation } from "./types"
 
 import styles from '../../../portfolio.module.scss'

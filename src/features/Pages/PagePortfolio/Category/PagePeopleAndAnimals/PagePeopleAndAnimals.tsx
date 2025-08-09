@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Widget } from "../../ui/Widget/Widget.tsx";
@@ -6,19 +6,16 @@ import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
 import { PicturesContent } from "../../../../UI/PicturesContent/PicturesContent.tsx";
 import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
 
-import { usePeopleAndAnimalsSelector, useOffsetPeopleAndAnimalsSelector } from "./selectors/peopleAndAnimalsSelectors.tsx";
-import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelectors.tsx";
+import { usePeopleAndAnimalsSelectors } from "./selectors/peopleAndAnimalsSelectors.tsx";
+import { usePortfolioCommonSelectors } from "../../selectors/commonSelectors.tsx";
 
 import { pathPeopleAndAnimals, urlPeopleAndAnimals, peopleAndAnimalsDataPages } from "./constants.ts"
 
 import styles from '../../portfolio.module.scss'
 
 const PagePeopleAndAnimals = () => {
-  const peopleAndAnimals = usePeopleAndAnimalsSelector()
-  const offsetPeopleAndAnimals = useOffsetPeopleAndAnimalsSelector()
-
-  const loading = useLoadingSelector()
-  const getData = useGetDataSelector()
+  const { peopleAndAnimals, offsetPeopleAndAnimals } = usePeopleAndAnimalsSelectors()
+  const { loading, getData } = usePortfolioCommonSelectors()
 
   const navigate = useNavigate()
   const location = useLocation() as { pathname: string }

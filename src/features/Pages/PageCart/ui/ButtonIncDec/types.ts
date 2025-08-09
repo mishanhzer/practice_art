@@ -2,7 +2,7 @@ import { TypeEvent, TypesPictureCart, TypeStyles } from "../../types"
 
 export interface TypesButtonIncDec {
   func: (e: TypeEvent) => void
-  disabled: boolean
+  disabled?: boolean
   style: string
   data?: number
 }

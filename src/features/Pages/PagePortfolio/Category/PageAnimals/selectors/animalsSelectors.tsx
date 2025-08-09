@@ -1,11 +1,12 @@
 import { useStore } from "../../../../../../store/store.ts";
 
-export const useAnimalsSelector = () => {
+export const useAnimalsSelectors = () => {
   const animals = useStore(state => state.animals)
-  return animals
+  const offsetAnimals = useStore(state => state.offsetAnimals)
+
+  return {
+    animals,
+    offsetAnimals
+  }
 }
 
-export const useOffsetAnimalsSelector = () => {
-  const offsetAnimals = useStore(state => state.offsetAnimals)
-  return offsetAnimals
-}

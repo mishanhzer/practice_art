@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-import { useStore } from "../../../store/store";
-
-import { usePicturesCartSelector, useCartSelector, useDiscountSelector, useGetDeleteSelector, useDeleteDuplicatePictureSelector, useAddInCartSelector } from './selectors/cartPageSelector'
+import { useCartPageSelectors } from "./selectors/cartPageSelector";
 
 import { TitlePage } from "../TitlePage/TitlePage";
 import { WhatsApp } from "../../Communication/WhatsApp/WhatsApp";
@@ -17,19 +15,14 @@ import styles from './cart.module.scss'
 const PageCart = () => {
   const [viewDeleteBtn, setViewDeleteBtn] = useState<number | undefined>(0)
 
-  const picturesCart = usePicturesCartSelector()
-  const cart = useCartSelector()
-  const discount = useDiscountSelector()
-  const getDeleteTest = useGetDeleteSelector()
-  const deleteDuplicatePicture = useDeleteDuplicatePictureSelector()
-  const addInCart = useAddInCartSelector()
-
-  // const picturesCart = useStore(state => state.picturesCart)
-  // const cart = useStore(state => state.cart)
-  // const discount = useStore(state => state.discount)
-  // const getDeleteTest = useStore(state => state.getDeleteTest)
-  // const deleteDuplicatePicture = useStore(state => state.deleteDuplicatePicture)
-  // const addInCart = useStore(state => state.addInCart)
+  const {
+    picturesCart,
+    cart,
+    discount,
+    getDeleteTest,
+    deleteDuplicatePicture,
+    addInCart
+  } = useCartPageSelectors()
 
   useEffect(() => {
     deleteDuplicatePicture()

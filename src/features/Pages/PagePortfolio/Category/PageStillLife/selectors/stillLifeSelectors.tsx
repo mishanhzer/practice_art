@@ -1,11 +1,12 @@
 import { useStore } from "../../../../../../store/store.ts";
 
-export const useStillLifeSelector = () => {
+export const useStillLifeSelectors = () => {
   const stillLife = useStore(state => state.stillLife)
-  return stillLife
+  const offsetStillLife = useStore(state => state.offsetStillLife)
+
+  return {
+    stillLife,
+    offsetStillLife
+  }
 }
 
-export const useOffsetStillLifeSelector = () => {
-  const offsetStillLife = useStore(state => state.offsetStillLife)
-  return offsetStillLife
-}

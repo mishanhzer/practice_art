@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { Widget } from "../../ui/Widget/Widget.tsx";
@@ -6,19 +6,16 @@ import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
 import { PicturesContent } from "../../../../UI/PicturesContent/PicturesContent.tsx";
 import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
 
-import { useFlowersSelector, useOffsetFlowersSelector } from "./selectors/flowersSelectors.tsx";
-import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelectors.tsx";
+import { useFlowersSelectors } from "./selectors/flowersSelectors.tsx";
+import { usePortfolioCommonSelectors } from "../../selectors/commonSelectors.tsx";
 
 import { pathFlowers, flowersDataPages, urlFlowers } from "./constants.ts";
 
 import styles from '../../portfolio.module.scss'
 
 const PageFlowers = () => {
-  const flowers = useFlowersSelector()
-  const offsetFlowers = useOffsetFlowersSelector()
-
-  const loading = useLoadingSelector()
-  const getData = useGetDataSelector()
+  const { flowers, offsetFlowers } = useFlowersSelectors()
+  const { loading, getData } = usePortfolioCommonSelectors()
 
   const navigate = useNavigate()
   const location = useLocation() as { pathname: string }

@@ -10,8 +10,6 @@ import { TypesData } from "../../../types"
 
 import styles from '../../../pageShop.module.scss'
 
-import { cartInBtn } from "../../../../../../assets/images/Images"
-
 export const InCart = ({ item, index }: { item: TypesData, index: number }) => {
   const [activeCart, setActiveCart] = useState(false)
   const [btnId, setBtnId] = useState(0)
@@ -20,7 +18,6 @@ export const InCart = ({ item, index }: { item: TypesData, index: number }) => {
   const getPicturesCart = useGetPicturesCart()
   const deleteDuplicatePicture = useDeleteDuplicatePicture()
   const setAddInCart = useSetAddInCart()
-  const addInCart = useAddInCart()
   const testCart = useTestCart()
   const picturesCart = usePicturesCart()
   const setCartTest = useSetCartTest()
@@ -37,10 +34,6 @@ export const InCart = ({ item, index }: { item: TypesData, index: number }) => {
   useEffect(() => {
     setCartTest(picturesCart)
   }, [picturesCart])
-
-  // useEffect(() => {
-  //   setTestData(testCart)
-  // }, [])
 
   const testClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     const activeBtn = +e.currentTarget.getAttribute('data-id')!

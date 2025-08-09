@@ -1,11 +1,13 @@
 import { useStore } from "../../../../../../store/store.ts";
 
-export const useFlowersSelector = () => {
+export const useFlowersSelectors = () => {
   const flowers = useStore(state => state.flowers)
-  return flowers
+  const offsetFlowers = useStore(state => state.offsetFlowers)
+
+  return {
+    flowers,
+    offsetFlowers
+  }
 }
 
-export const useOffsetFlowersSelector = () => {
-  const offsetFlowers = useStore(state => state.offsetFlowers)
-  return offsetFlowers
-}
+

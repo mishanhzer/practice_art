@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { Widget } from "../../ui/Widget/Widget.tsx";
@@ -6,19 +6,16 @@ import { PicturesContent } from "../../../../UI/PicturesContent/PicturesContent.
 import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
 import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
 
-import { useAnimalsSelector, useOffsetAnimalsSelector } from "./selectors/animalsSelectors.tsx";
-import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelectors.tsx";
+import { useAnimalsSelectors } from "./selectors/animalsSelectors.tsx";
+import { usePortfolioCommonSelectors } from "../../selectors/commonSelectors.tsx"
 
 import { urlAnimals, pathAnimals, animalsDataPages } from "./constants.ts";
 
 import styles from '../../portfolio.module.scss'
 
 const PageAnimals = () => {
-  const animals = useAnimalsSelector()
-  const offsetAnimals = useOffsetAnimalsSelector()
-
-  const loading = useLoadingSelector()
-  const getData = useGetDataSelector()
+  const { animals, offsetAnimals } = useAnimalsSelectors()
+  const { loading, getData } = usePortfolioCommonSelectors()
 
   const navigate = useNavigate()
   const location = useLocation() as { pathname: string }

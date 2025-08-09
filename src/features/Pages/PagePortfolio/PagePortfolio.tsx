@@ -1,11 +1,11 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 
 import { TitlePage } from "../TitlePage/TitlePage.tsx";
 import { PortfolioItem } from "./PortfolioItem/PortfolioItem.tsx";
 import { WhatsApp } from "../../Communication/WhatsApp/WhatsApp.tsx";
 import { PortfolioImage } from './PortfolioImage/PortfolioImage.tsx'
 
-import { usePortfolioAnimalsSelector, usePortfolioFlowersSelector, usePortfolioStillLifeSelector, usePortfolioPeopleAndAnimalsSelector } from "./selectors/portfolioSelectors.tsx";
+import { usePortfolioSelectors } from "./selectors/portfolioSelectors.tsx"
 
 import { descriptionAnimals, descriptionFlowers, descriptionStillLife, descriptionPeopleAndAnimals } from './constants.ts'
 
@@ -15,10 +15,12 @@ import portfolioStillLife from '../../../assets/images/portfolioImages/portfolio
 import portfolioPeopleAndAnimals from '../../../assets/images/portfolioImages/portfolioPeopleAndAnimals.jpg'
 
 const PagePortfolio = () => {
-  const pageAnimals = usePortfolioAnimalsSelector()
-  const pageFlowers = usePortfolioFlowersSelector()
-  const pageStillLife = usePortfolioStillLifeSelector()
-  const pagePeopleAndAnimals = usePortfolioPeopleAndAnimalsSelector()
+  const {
+    pageAnimals,
+    pageFlowers,
+    pageStillLife,
+    pagePeopleAndAnimals
+  } = usePortfolioSelectors()
 
   const dataPortfolioItem = [
     { Component: <PortfolioImage src={portfolioAnimals} alt='Животные' />, headText: 'Животные', text: descriptionAnimals, path: `/portfolio/animals/${pageAnimals}`, id: 0 },

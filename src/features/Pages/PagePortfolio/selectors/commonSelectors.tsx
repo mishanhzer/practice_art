@@ -1,12 +1,14 @@
 import { useStore } from "../../../../store/store.ts";
 
-export const useLoadingSelector = () => {
+export const usePortfolioCommonSelectors = () => {
   const loading = useStore(state => state.loading)
-  return loading
+  const getData = useStore(state => state.getData)
+
+  return {
+    loading,
+    getData
+  }
 }
 
-export const useGetDataSelector = () => {
-  const getData = useStore(state => state.getData)
-  return getData
-}
+
 

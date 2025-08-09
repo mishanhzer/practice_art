@@ -1,16 +1,14 @@
 import {useStore} from '../../../../store/store'
 
-export const useWorks = () => {
+export const useAboutSelectors = () => {
   const works = useStore(state => state.works).slice(-9)
-  return works
-}
-
-export const useGetData = () => {
   const getData = useStore(state => state.getData)
-  return getData
+  const loading = useStore(state => state.loading)
+  
+  return {
+    works,
+    getData,
+    loading
+  }
 }
 
-export const useLoading = () => {
-  const loading = useStore(state => state.loading)
-  return loading
-}

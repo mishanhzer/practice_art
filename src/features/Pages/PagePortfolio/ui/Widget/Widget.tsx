@@ -1,4 +1,3 @@
-import React from 'react'
 import { WidgetNavigation } from './WidgetNavigation/WidgetNavigation';
 import { WidgetPages } from './WidgetPages/WidgetPages';
 

@@ -1,5 +1,3 @@
-import React from "react"
-
 import { TypeImagePortfolio } from "../types"
 import styles from '../portfolio.module.scss'
 

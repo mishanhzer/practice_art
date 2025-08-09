@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { Widget } from "../../ui/Widget/Widget.tsx";
@@ -6,19 +6,16 @@ import { Spinner } from "../../../../UI/Spinner/Spinner.tsx";
 import { PicturesContent } from "../../../../UI/PicturesContent/PicturesContent.tsx";
 import { WhatsApp } from "../../../../Communication/WhatsApp/WhatsApp.tsx";
 
-import { useStillLifeSelector, useOffsetStillLifeSelector } from "./selectors/stillLifeSelectors.tsx";
-import { useLoadingSelector, useGetDataSelector } from "../../selectors/commonSelectors.tsx";
+import { useStillLifeSelectors } from "./selectors/stillLifeSelectors.tsx";
+import { usePortfolioCommonSelectors } from "../../selectors/commonSelectors.tsx";
 
 import { pathStillLife, stillLifeDataPages, urlStillLife } from './constants.ts'
 
 import styles from '../../portfolio.module.scss'
 
 const PageStillLife = () => {
-  const stillLife = useStillLifeSelector()
-  const offsetStillLife = useOffsetStillLifeSelector()
-
-  const loading = useLoadingSelector()
-  const getData = useGetDataSelector()
+  const { stillLife, offsetStillLife } = useStillLifeSelectors()
+  const { loading, getData } = usePortfolioCommonSelectors()
 
   const navigate = useNavigate()
   const location = useLocation() as { pathname: string }
