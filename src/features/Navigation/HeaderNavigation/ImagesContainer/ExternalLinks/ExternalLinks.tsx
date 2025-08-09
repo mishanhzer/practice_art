@@ -1,5 +1,3 @@
-import React from "react"
-
 import { TypesExternalLinks } from "./types"
 
 export const ExternalLinks = ({ source, name, link }: TypesExternalLinks) => {

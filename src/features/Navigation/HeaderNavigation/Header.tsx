@@ -1,5 +1,3 @@
-import React from "react";
-
 import { ImagesContainer } from "./ImagesContainer/ImagesContainer";
 import { BasketContainer } from "./BasketContainer/BasketContainer";
 import { LogoContainer } from './LogoContainer/LogoContainer';

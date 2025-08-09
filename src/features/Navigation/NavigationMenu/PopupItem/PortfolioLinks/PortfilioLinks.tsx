@@ -1,17 +1,20 @@
-import React from "react"
 import { NavLink } from "react-router"
-import { PopupActions } from 'reactjs-popup/dist/types';
+
 import classNames from "classnames"
 
-import { usePageAnimalsSelector, usePageFlowersSelector, usePageStillLifeSelector, usePagePeopleAndAnimalsSelector } from "../../selectors/popupSelectors"
+import { usePortofilioLinksSelectors } from "../../selectors/popupSelectors"
+
+import { PopupActions } from 'reactjs-popup/dist/types';
 
 import styles from '../../navigationMenu.module.scss'
 
 export const PortoflioLinks = ({ ref }: { ref: React.RefObject<PopupActions> }) => {
-  const pageAnimals = usePageAnimalsSelector()
-  const pageFlowers = usePageFlowersSelector()
-  const pageStillLife = usePageStillLifeSelector()
-  const pagePeopleAndAnimals = usePagePeopleAndAnimalsSelector()
+  const {
+    pageAnimals,
+    pageFlowers,
+    pageStillLife,
+    pagePeopleAndAnimals
+  } = usePortofilioLinksSelectors()
 
   const handleClick = () => {
     if (ref.current) {

@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Basket } from "./Basket/Basket";
 import { ContactMeBtn } from "./ContactMeBtn/ContactMeBtn";
 

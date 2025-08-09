@@ -1,5 +1,3 @@
-import React from "react";
-
 import { ExternalLinks } from "./ExternalLinks/ExternalLinks";
 
 import { externalImages } from './constants'

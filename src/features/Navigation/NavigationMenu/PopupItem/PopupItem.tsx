@@ -1,14 +1,15 @@
 import { useRef } from 'react';
 import { NavLink } from 'react-router-dom';
+
 import classNames from 'classnames';
 
 import Popup from 'reactjs-popup';
-import { PopupActions } from 'reactjs-popup/dist/types';
 
 import { PortoflioLinks } from './PortfolioLinks/PortfilioLinks';
 
 import { initialValueRef } from './constants'
 
+import { PopupActions } from 'reactjs-popup/dist/types';
 import { TypesMenuItem } from '../types';
 
 import 'reactjs-popup/dist/index.css';

@@ -1,5 +1,3 @@
-import React from "react";
-
 import { ArrowIconTypes } from "./types";
 
 import { arrow } from "../../../../../assets/logo/logo";

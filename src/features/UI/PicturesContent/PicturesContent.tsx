@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { ModalPortal } from "./Modal/Modal.tsx";
 import { AnimationContainer } from "./AnimationContainer/AnimationContainer.tsx";

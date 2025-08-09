@@ -1,0 +1,1 @@
+export const whatsAppLink: string = 'https://wa.me/79222636130'
