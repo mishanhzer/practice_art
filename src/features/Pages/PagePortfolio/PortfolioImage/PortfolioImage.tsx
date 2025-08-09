@@ -1,4 +1,5 @@
 import { TypeImagePortfolio } from "../types"
+
 import styles from '../portfolio.module.scss'
 
 export const PortfolioImage = ({ src, alt }: TypeImagePortfolio) => {

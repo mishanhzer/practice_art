@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react"
+import { useEffect, useState, useCallback } from "react"
 
 import { Button } from "../../../../UI/Button/Button"
 import { ContentCategory } from "../ContentCategory/ContentCategory"

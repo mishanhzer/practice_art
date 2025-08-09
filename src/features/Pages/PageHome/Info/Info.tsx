@@ -1,5 +1,3 @@
-import React from "react"
-
 import { name, subheader, description, subDescription } from '../constants.ts'
 
 import styles from '../home.module.scss'

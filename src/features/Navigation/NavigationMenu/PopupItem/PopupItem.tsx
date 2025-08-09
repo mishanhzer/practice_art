@@ -2,7 +2,6 @@ import { useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import classNames from 'classnames';
-
 import Popup from 'reactjs-popup';
 
 import { PortoflioLinks } from './PortfolioLinks/PortfilioLinks';

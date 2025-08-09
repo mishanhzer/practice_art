@@ -1,4 +1,6 @@
-export const _transform = (item: any) => {  
+import { TypesUseTransform } from "./types"
+
+export const _transform = (item: TypesUseTransform) => {  
   return {
     file: item.file,
     preview: item.preview,
