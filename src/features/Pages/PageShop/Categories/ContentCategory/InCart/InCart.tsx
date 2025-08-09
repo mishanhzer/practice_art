@@ -4,7 +4,8 @@ import { NavLink } from "react-router"
 import { ButtonCart } from "./ButtonCart/ButtonCart"
 import { CartInBtn } from "./CartInBtn/CartInBtn"
 
-import { useGetPictureCart, useGetPicturesCart, useDeleteDuplicatePicture, useSetAddInCart, useAddInCart, useTestCart, usePicturesCart, useSetCartTest } from '../../../selectors/shopSelectors'
+import { useInCartSelectors } from "../../../selectors/shopSelectors"
+import { useShopCommonSelectors } from "../../../selectors/shopSelectors"
 
 import { TypesData } from "../../../types"
 
@@ -14,13 +15,15 @@ export const InCart = ({ item, index }: { item: TypesData, index: number }) => {
   const [activeCart, setActiveCart] = useState(false)
   const [btnId, setBtnId] = useState(0)
 
-  const getPictureCart = useGetPictureCart()
-  const getPicturesCart = useGetPicturesCart()
-  const deleteDuplicatePicture = useDeleteDuplicatePicture()
-  const setAddInCart = useSetAddInCart()
-  const testCart = useTestCart()
-  const picturesCart = usePicturesCart()
-  const setCartTest = useSetCartTest()
+  const {
+    getPictureCart,
+    getPicturesCart,
+    deleteDuplicatePicture,
+    testCart,
+    picturesCart,
+    setCartTest
+  } = useInCartSelectors()
+  const { setAddInCart } = useShopCommonSelectors()
 
   const obj = testCart.reduce((acc, value, index) => {
     acc[index] = value

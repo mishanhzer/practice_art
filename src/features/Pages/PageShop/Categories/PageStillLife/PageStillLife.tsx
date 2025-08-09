@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useCallback, useMemo } from "react"
+import React, { useEffect, useState } from "react"
 
 import { Button } from "../../../../UI/Button/Button"
 import { SubscribePanel } from '../SubscribePanel/SubscribePanel'
 import { ContentCategory } from "../ContentCategory/ContentCategory"
 import { PopupCart } from "../ContentCategory/PopupCart/PopupCart"
 
-import { useStillLife, useGetData, useSetAddInCart, useSetNewData, useLoading, useAddInCart } from "../../selectors/shopSelectors"
+import { useCategorySelectors, useShopCommonSelectors } from '../../selectors/shopSelectors'
 
 import { stillLifeShop } from '../../constants'
 import { urlStillLifeShop } from './constants'
@@ -17,12 +17,8 @@ const PageStillLife = () => {
   const [activeDiscount, setActiveDiscount] = useState(false)
   const [limit, setLimit] = useState(9)
 
-  const stillLife = useStillLife()
-  const getData = useGetData()
-  const setAddInCart = useSetAddInCart()
-  const setNewData = useSetNewData()
-  const loading = useLoading()
-  const addInCart = useAddInCart()
+  const { stillLife } = useCategorySelectors()
+  const { getData, setNewData, setAddInCart, addInCart } = useShopCommonSelectors()
 
   useEffect(() => {
     getData('stillLife', urlStillLifeShop, 'offsetStillLife', 0, 'pageStillLife')

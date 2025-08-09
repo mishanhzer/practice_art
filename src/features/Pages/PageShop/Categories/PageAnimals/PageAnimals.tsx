@@ -3,8 +3,9 @@ import React, { useEffect, useState, useCallback } from "react"
 import { Button } from "../../../../UI/Button/Button"
 import { ContentCategory } from "../ContentCategory/ContentCategory"
 import { SubscribePanel } from '../SubscribePanel/SubscribePanel'
+import { PopupCart } from "../ContentCategory/PopupCart/PopupCart"
 
-import { useAnimals, useGetData, useSetNewData, useLoading, useSetAddInCart, useAddInCart } from '../../selectors/shopSelectors'
+import { useCategorySelectors, useShopCommonSelectors } from '../../selectors/shopSelectors'
 
 import { animalsShop } from '../../constants'
 import { urlAnimalsShop } from './constants'
@@ -16,12 +17,8 @@ const PageAnimals = () => {
   const [activeDiscount, setActiveDiscount] = useState(false)
   const [limit, setLimit] = useState(9)
 
-  const animals = useAnimals()
-  const getData = useGetData()
-  const setAddInCart = useSetAddInCart()
-  const setNewData = useSetNewData()
-  const loading = useLoading()
-  const addInCart = useAddInCart()
+  const { animals } = useCategorySelectors()
+  const { getData, setAddInCart, setNewData, addInCart } = useShopCommonSelectors()
 
   useEffect(() => {
     getData('animals', urlAnimalsShop, 'offsetAnimals', 0, 'pageAnimals')
@@ -54,6 +51,7 @@ const PageAnimals = () => {
 
   return (
     <div>
+      {addInCart ? <PopupCart /> : null}
       <SubscribePanel
         activeDiscount={activeDiscount}
         setActiveDiscount={setActiveDiscount} />

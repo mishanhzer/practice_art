@@ -1,5 +1,5 @@
+import { useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import React, { useRef, useEffect } from 'react';
 
 import { AnimationSinglePicture } from '../AnimationContainer/AnimationContainer';
 
@@ -18,7 +18,9 @@ export const ModalPortal = ({ position, handleClose, source, alt }: TypesModalPo
         handleClose()
       }
     }
+
     window.addEventListener('keydown', closeModal)
+
     return () => {
       window.removeEventListener('keydown', closeModal)
     }

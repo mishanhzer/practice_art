@@ -1,4 +1,5 @@
 import { TypesImageButton } from './types'
+
 import arrow from '../../../../assets/logo/logoHeader/linkBtns/arrow.png'
 
 export const ImageButton = ({ w, h, turn, translateX }: TypesImageButton) => {

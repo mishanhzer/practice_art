@@ -5,7 +5,7 @@ import { SubscribePanel } from '../SubscribePanel/SubscribePanel'
 import { ContentCategory } from "../ContentCategory/ContentCategory"
 import { PopupCart } from "../ContentCategory/PopupCart/PopupCart"
 
-import { useFlowers, useGetData, useSetAddInCart, useSetNewData, useLoading, useAddInCart, } from "../../selectors/shopSelectors"
+import { useCategorySelectors, useShopCommonSelectors } from '../../selectors/shopSelectors'
 
 import { flowersShop } from "../../constants"
 import { urlFlowersShop } from './constants'
@@ -17,12 +17,8 @@ const PageFlowers = () => {
   const [activeDiscount, setActiveDiscount] = useState(false)
   const [limit, setLimit] = useState(9)
 
-  const flowers = useFlowers()
-  const getData = useGetData()
-  const setAddInCart = useSetAddInCart()
-  const setNewData = useSetNewData()
-  const loading = useLoading()
-  const addInCart = useAddInCart()
+  const { flowers } = useCategorySelectors()
+  const { getData, setNewData, loading, setAddInCart, addInCart } = useShopCommonSelectors()
 
   useEffect(() => {
     getData('flowers', urlFlowersShop, 'offsetFlowers', 0, 'pageFlowers')

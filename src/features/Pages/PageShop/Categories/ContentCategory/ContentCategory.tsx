@@ -9,24 +9,21 @@ import { InCart } from "./InCart/InCart";
 import { Salary } from "./Salary/Salary";
 import { Like } from "./Like/Like";
 
-import { useNewData, useDiscount, useCart, useSetCartActiveItems, useAddInCart } from "../../selectors/shopSelectors";
+import { useShopCommonSelectors } from "../../selectors/shopSelectors"
+import { useContentCategorySelectors } from "../../selectors/shopSelectors"
 
 import { TypesCategoryProps } from './types'
 
 import styles from '../../pageShop.module.scss'
 
 export const ContentCategory = ({
-  commonData,
   limit,
   handleClickLike,
   saveActive,
 }: TypesCategoryProps) => {
 
-  const newData = useNewData()
-  const discount = useDiscount()
-  const cart = useCart()
-  const setCartActiveItems = useSetCartActiveItems()
-  const addInCart = useAddInCart()
+  const { newData, discount, cart, setCartActiveItems } = useContentCategorySelectors()
+  const { addInCart } = useShopCommonSelectors()
 
   const addActiveCarts = newData.map(item => {
     const foundItem = cart.find((item2) => item2.name === item.name)

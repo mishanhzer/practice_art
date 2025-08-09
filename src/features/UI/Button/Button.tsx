@@ -13,7 +13,6 @@ export const Button = ({ mt, h, fz, disabled, mx, textBtn, turn, translateX, fun
         onClick={func}
         disabled={disabled}
         className={twMerge(mt, h, fz, mx, styles.button)}
-        // className={twMerge(mt, h, fz, mx, 'flex py-6 px-10 bg-[rgba(0,91,255,1)] text-white items-center font-sans hover:transition hover:opacity-80 rounded-lg group disabled:opacity-80')}
         type="submit"
       >
         {textBtn}

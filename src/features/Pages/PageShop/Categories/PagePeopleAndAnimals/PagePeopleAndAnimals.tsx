@@ -5,7 +5,7 @@ import { SubscribePanel } from '../SubscribePanel/SubscribePanel'
 import { ContentCategory } from "../ContentCategory/ContentCategory"
 import { PopupCart } from "../ContentCategory/PopupCart/PopupCart"
 
-import { usePeopleAndAnimals, useGetData, useSetAddInCart, useSetNewData, useLoading, useAddInCart } from "../../selectors/shopSelectors"
+import { useCategorySelectors, useShopCommonSelectors } from '../../selectors/shopSelectors'
 
 import { peopleAndAnimalsShop } from "../../constants"
 import { urlPeopleAndAnimalsShop } from './constants'
@@ -17,12 +17,8 @@ const PagePeopleAndAnimals = () => {
   const [activeDiscount, setActiveDiscount] = useState(false)
   const [limit, setLimit] = useState(9)
 
-  const peopleAndAnimals = usePeopleAndAnimals()
-  const getData = useGetData()
-  const setAddInCart = useSetAddInCart()
-  const setNewData = useSetNewData()
-  const loading = useLoading()
-  const addInCart = useAddInCart()
+  const { peopleAndAnimals } = useCategorySelectors()
+  const { getData, setNewData, setAddInCart, addInCart } = useShopCommonSelectors()
 
   useEffect(() => {
     getData('stillLife', urlPeopleAndAnimalsShop, 'offsetPeopleAndAnimals', 0, 'pagePeopleAndAnimals')
