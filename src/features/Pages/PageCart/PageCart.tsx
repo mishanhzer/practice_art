@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 import { useCartPageSelectors } from "./selectors/cartPageSelector";
 
@@ -13,8 +13,6 @@ import { CartForm } from "./CartForm/CartForm";
 import styles from './cart.module.scss'
 
 const PageCart = () => {
-  const [viewDeleteBtn, setViewDeleteBtn] = useState<number | undefined>(0)
-
   const {
     picturesCart,
     cart,
@@ -35,8 +33,14 @@ const PageCart = () => {
       <div className={styles.container}>
         {cart.length ?
           <>
-            <CartForm picturesCart={picturesCart} getDeleteTest={getDeleteTest} setViewDeleteBtn={setViewDeleteBtn} discount={discount} />
-            <CartOrder picturesCart={cart} discount={discount} styles={styles} />
+            <CartForm
+              picturesCart={picturesCart}
+              getDeleteTest={getDeleteTest}
+              discount={discount} />
+            <CartOrder
+              picturesCart={cart}
+              discount={discount}
+              styles={styles} />
           </> : <CartEmpty styles={styles} />}
         <WhatsApp />
       </div>

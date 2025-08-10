@@ -1,10 +1,10 @@
-import { name, subheader, description, subDescription } from '../constants.ts'
+import { name, subheader, description, subDescription } from './constants.ts'
 
-import styles from '../home.module.scss'
+import styles from './home.module.scss'
 
-import homePicture from '../../../../assets/images/homeImages/homePicture.jpg'
+import homePicture from '../../../assets/images/homeImages/homePicture.jpg'
 
-export const Info = () => {
+export const PageHome = () => {
   return (
     <div className={styles.container}>
       <div className={styles.info}>

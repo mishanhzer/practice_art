@@ -12,9 +12,7 @@ import { TypesPictureCart, TypeEvent, TypeFuncOperation } from '../types'
 
 import styles from '../cart.module.scss'
 
-export const CartForm = ({ picturesCart, getDeleteTest, setViewDeleteBtn, discount }: TypesCartForm) => {
-  const [oldSalary, setOldSalary] = useState(0)
-  const [cartId, setCartId] = useState(0)
+export const CartForm = ({ picturesCart, getDeleteTest, discount }: TypesCartForm) => {
   const [btnId, setBtnId] = useState(0)
   const [activeLike, setActiveLike] = useState(false)
   const [cart, setCart] = useState(picturesCart);
@@ -42,7 +40,6 @@ export const CartForm = ({ picturesCart, getDeleteTest, setViewDeleteBtn, discou
     const elem = +e.currentTarget.getAttribute('data-id')!
     getDeleteTest(elem)
 
-    setViewDeleteBtn(elem)
     setAddInCart(true)
 
     getDeleteItemCart(elem)
@@ -60,12 +57,11 @@ export const CartForm = ({ picturesCart, getDeleteTest, setViewDeleteBtn, discou
 
   const handleIncreaseSalary = (e: TypeEvent, pictureSalary: number, value: number, operation: TypeFuncOperation = (a, b) => (a + b)) => {
     const cartPictureId = +e.currentTarget.getAttribute('data-id')!
-    setCartId(cartPictureId)
 
     const selectedPicture: TypesPictureCart | undefined = picturesCart.find(item => item.id === cartPictureId)
     if (selectedPicture && selectedPicture.salary !== undefined) {
       const newSalary = operation(pictureSalary, selectedPicture.salary)
-      setOldSalary(selectedPicture.salary)
+
       const newCart = cartMain.map((item) => {
         if (item.id === cartPictureId) {
           return { ...item, amount: item.amount + value, salary: newSalary };
@@ -104,5 +100,6 @@ export const CartForm = ({ picturesCart, getDeleteTest, setViewDeleteBtn, discou
         )
       })
       }
-    </div >)
+    </div >
+  )
 }
