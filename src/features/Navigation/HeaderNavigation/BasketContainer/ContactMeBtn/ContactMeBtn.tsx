@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { twMerge } from "tailwind-merge";
 
-import { ArrowIcon } from "./ArrowIcon";
+import { ArrowIcon } from "./ArrowIcon/ArrowIcon";
 
 import { LinkTypes } from "./types"
 

@@ -3,7 +3,6 @@ import { useEffect, useState, useCallback } from "react"
 import { Button } from "../../../../UI/Button/Button"
 import { ContentCategory } from "../ContentCategory/ContentCategory"
 import { SubscribePanel } from '../SubscribePanel/SubscribePanel'
-import { PopupCart } from "../ContentCategory/PopupCart/PopupCart"
 
 import { useCategorySelectors, useShopCommonSelectors } from '../../selectors/shopSelectors'
 
@@ -51,7 +50,6 @@ const PageAnimals = () => {
 
   return (
     <div>
-      {addInCart ? <PopupCart /> : null}
       <SubscribePanel
         activeDiscount={activeDiscount}
         setActiveDiscount={setActiveDiscount} />

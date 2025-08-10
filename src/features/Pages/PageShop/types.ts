@@ -12,7 +12,7 @@ export interface TypesData {
   size?: string
   materials?: string
   active?: boolean
-  id?: number
+  id?: number | string
   file?: string
   amount: number
   path?: string
@@ -21,5 +21,5 @@ export interface TypesData {
 }
 
 export interface TypesSaveActive {
-  [key: number]: boolean
+  [key: number]: boolean 
 }

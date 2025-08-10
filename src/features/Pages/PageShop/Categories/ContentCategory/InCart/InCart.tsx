@@ -13,7 +13,6 @@ import styles from '../../../pageShop.module.scss'
 
 export const InCart = ({ item, index }: { item: TypesData, index: number }) => {
   const [activeCart, setActiveCart] = useState(false)
-  const [btnId, setBtnId] = useState(0)
 
   const {
     getPictureCart,
@@ -38,9 +37,7 @@ export const InCart = ({ item, index }: { item: TypesData, index: number }) => {
     setCartTest(picturesCart)
   }, [picturesCart])
 
-  const testClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    const activeBtn = +e.currentTarget.getAttribute('data-id')!
-    setBtnId(activeBtn)
+  const testClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setActiveCart(!activeCart)
 
     if (e.currentTarget) {
@@ -58,10 +55,21 @@ export const InCart = ({ item, index }: { item: TypesData, index: number }) => {
   return (
     <div className={item.salary ? styles.inCartContainer : 'hidden'}>
       {obj[index] ?
-        <NavLink to='/cart' className={styles.inCartActive}>
-          <ButtonCart item={item} testClick={testClick} btnText={'В корзине'} img={() => null} />
+        <NavLink
+          to='/cart'
+          className={styles.inCartActive}>
+          <ButtonCart
+            item={item}
+            testClick={testClick}
+            btnText={'В корзине'}
+            img={() => null} />
         </NavLink> :
-        <ButtonCart item={item} testClick={testClick} btnText={'В корзину'} style={styles.inCart} img={() => <CartInBtn />} />
+        <ButtonCart
+          item={item}
+          testClick={testClick}
+          btnText={'В корзину'}
+          style={styles.inCart}
+          img={() => <CartInBtn />} />
       }
     </div>
   )

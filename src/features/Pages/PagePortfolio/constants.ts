@@ -1,3 +1,16 @@
+import portfolioAnimals from '../../../assets/images/portfolioImages/portfolioAnimals.jpg'
+import portfolioFlowers from '../../../assets/images/portfolioImages/portfolioFlowers.jpg'
+import portfolioStillLife from '../../../assets/images/portfolioImages/portfolioStillLife.jpg'
+import portfolioPeopleAndAnimals from '../../../assets/images/portfolioImages/portfolioPeopleAndAnimals.jpg'
+
+// Картинки для категорий портфолио
+export const portofolioImages = {
+  portfolioAnimals,
+  portfolioFlowers,
+  portfolioStillLife,
+  portfolioPeopleAndAnimals
+}
+
 // API
 export const _apiUrl = 'https://cloud-api.yandex.net/v1/disk/public/resources?public_key='
 

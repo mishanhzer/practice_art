@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { Button } from "../../../../UI/Button/Button"
 import { SubscribePanel } from '../SubscribePanel/SubscribePanel'
 import { ContentCategory } from "../ContentCategory/ContentCategory"
-import { PopupCart } from "../ContentCategory/PopupCart/PopupCart"
 
 import { useCategorySelectors, useShopCommonSelectors } from '../../selectors/shopSelectors'
 
@@ -18,7 +17,7 @@ const PageFlowers = () => {
   const [limit, setLimit] = useState(9)
 
   const { flowers } = useCategorySelectors()
-  const { getData, setNewData, loading, setAddInCart, addInCart } = useShopCommonSelectors()
+  const { getData, setNewData, setAddInCart, addInCart } = useShopCommonSelectors()
 
   useEffect(() => {
     getData('flowers', urlFlowersShop, 'offsetFlowers', 0, 'pageFlowers')
@@ -51,7 +50,6 @@ const PageFlowers = () => {
 
   return (
     <div>
-      {addInCart ? <PopupCart /> : null}
       <SubscribePanel activeDiscount={activeDiscount} setActiveDiscount={setActiveDiscount} />
       <div className={styles.categoryContainer}>
         <ContentCategory

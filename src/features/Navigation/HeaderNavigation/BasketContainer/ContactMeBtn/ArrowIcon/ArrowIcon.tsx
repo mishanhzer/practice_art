@@ -1,6 +1,6 @@
 import { ArrowIconTypes } from "./types";
 
-import { arrow } from "../../../../../assets/logo/logo";
+import { arrow } from "../../../../../../assets/logo/logo";
 
 export const ArrowIcon = ({ w, h, turn, translateX }: ArrowIconTypes) => {
   return (

@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
 
-import { ImageButton } from './ImageButton/ImageButton'
+import { ButtonImage } from './ButtonImage/ButtonImage'
 
 import { TypesButton } from './types'
 
@@ -16,7 +16,7 @@ export const Button = ({ mt, h, fz, disabled, mx, textBtn, turn, translateX, fun
         type="submit"
       >
         {textBtn}
-        <ImageButton w="w-5" h="h-5" turn={turn} translateX={translateX} />
+        <ButtonImage w="w-5" h="h-5" turn={turn} translateX={translateX} />
       </button>
     </div>
   );

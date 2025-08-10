@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { Button } from "../../../../UI/Button/Button"
 import { SubscribePanel } from '../SubscribePanel/SubscribePanel'
 import { ContentCategory } from "../ContentCategory/ContentCategory"
-import { PopupCart } from "../ContentCategory/PopupCart/PopupCart"
 
 import { useCategorySelectors, useShopCommonSelectors } from '../../selectors/shopSelectors'
 
@@ -51,7 +50,6 @@ const PagePeopleAndAnimals = () => {
 
   return (
     <div>
-      {addInCart ? <PopupCart /> : null}
       <SubscribePanel activeDiscount={activeDiscount} setActiveDiscount={setActiveDiscount} />
       <div className={styles.categoryContainer}>
         <ContentCategory

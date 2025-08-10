@@ -7,12 +7,7 @@ import { PortfolioImage } from './PortfolioImage/PortfolioImage.tsx'
 
 import { usePortfolioSelectors } from "./selectors/portfolioSelectors.tsx"
 
-import { descriptionAnimals, descriptionFlowers, descriptionStillLife, descriptionPeopleAndAnimals } from './constants.ts'
-
-import portfolioAnimals from '../../../assets/images/portfolioImages/portfolioAnimals.jpg'
-import portfolioFlowers from '../../../assets/images/portfolioImages/portfolioFlowers.jpg'
-import portfolioStillLife from '../../../assets/images/portfolioImages/portfolioStillLife.jpg'
-import portfolioPeopleAndAnimals from '../../../assets/images/portfolioImages/portfolioPeopleAndAnimals.jpg'
+import { portofolioImages, descriptionAnimals, descriptionFlowers, descriptionStillLife, descriptionPeopleAndAnimals } from './constants.ts'
 
 const PagePortfolio = () => {
   const {
@@ -23,10 +18,10 @@ const PagePortfolio = () => {
   } = usePortfolioSelectors()
 
   const dataPortfolioItem = [
-    { Component: <PortfolioImage src={portfolioAnimals} alt='Животные' />, headText: 'Животные', text: descriptionAnimals, path: `/portfolio/animals/${pageAnimals}`, id: 0 },
-    { Component: <PortfolioImage src={portfolioFlowers} alt='Цветы' />, headText: 'Цветы', text: descriptionFlowers, path: `/portfolio/flowers/${pageFlowers}`, id: 1 },
-    { Component: <PortfolioImage src={portfolioStillLife} alt='Натюрморт' />, headText: 'Натюрморт', text: descriptionStillLife, path: `/portfolio/still_life/${pageStillLife}`, id: 2 },
-    { Component: <PortfolioImage src={portfolioPeopleAndAnimals} alt='Люди и животные' />, headText: 'Люди и животные', text: descriptionPeopleAndAnimals, path: `/portfolio/people_and_animals/${pagePeopleAndAnimals}`, id: 3 }
+    { Component: <PortfolioImage src={portofolioImages.portfolioAnimals} alt='Животные' />, headText: 'Животные', text: descriptionAnimals, path: `/portfolio/animals/${pageAnimals}`, id: 0 },
+    { Component: <PortfolioImage src={portofolioImages.portfolioFlowers} alt='Цветы' />, headText: 'Цветы', text: descriptionFlowers, path: `/portfolio/flowers/${pageFlowers}`, id: 1 },
+    { Component: <PortfolioImage src={portofolioImages.portfolioStillLife} alt='Натюрморт' />, headText: 'Натюрморт', text: descriptionStillLife, path: `/portfolio/still_life/${pageStillLife}`, id: 2 },
+    { Component: <PortfolioImage src={portofolioImages.portfolioPeopleAndAnimals} alt='Люди и животные' />, headText: 'Люди и животные', text: descriptionPeopleAndAnimals, path: `/portfolio/people_and_animals/${pagePeopleAndAnimals}`, id: 3 }
   ]
 
   return (

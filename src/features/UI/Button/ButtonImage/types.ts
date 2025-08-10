@@ -1,4 +1,4 @@
-export interface TypesImageButton {
+export interface TypesButtonImage {
   w: string
   h: string
   turn: string
